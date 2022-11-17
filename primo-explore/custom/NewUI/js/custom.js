@@ -247,7 +247,9 @@
       mapping: function mapping(queries, filters) {
         try {
           return queries.map(function (part) {
-            return part.split(",")[2] || "";
+           var terms = part.split(/^(any\,contains\,)/)[2];
+           var termed = terms.split(/(\,AND)$/)[0];
+           return termed.replace(/~2F/, "%2F");
           }).join(' ');
         } catch (e) {
           return '';
@@ -261,7 +263,9 @@
       mapping: function mapping(queries, filters) {
         try {
           return queries.map(function (part) {
-            return part.split(",")[2] || "";
+           var terms = part.split(/^(any\,contains\,)/)[2];
+           var termed = terms.split(/(\,AND)$/)[0];
+           return termed.replace(/~2F/, "%2F");
           }).join(' ');
         } catch (e) {
           return '';
