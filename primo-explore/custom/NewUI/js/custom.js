@@ -2,7 +2,7 @@
   "use strict";
   'use strict';
   
-  var app = angular.module('viewCustom', ['angularLoad', 'externalSearch', 'googleAnalytics']);
+  var app = angular.module('viewCustom', ['angularLoad', 'externalSearch']);
   
   "use strict";
   'use strict';
@@ -33,6 +33,32 @@
     /*In case of CENTRAL_PACKAGE - comment out the below line to replace the other module definition*/
   
     /****************************************************************************************************/
+
+    /* <!-- Google Tag Manager --> added to track events within Primo VE--red 07 October 2022 */
+var GTM_CODE = 'GTM-TPRGS9R';
+(function (w, d, s, l, i) {
+w[l] = w[l] || [];w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });var f = d.getElementsByTagName(s)[0],
+  j = d.createElement(s),
+  dl = l != 'dataLayer' ? '&l=' + l : '';j.async = true;j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', GTM_CODE);
+/* <!-- End Google Tag Manager --> */
+
+/*//START - Google Analytics
+
+var googleAnalyticsUrl = document.createElement('script');
+googleAnalyticsUrl.src = "https://www.googletagmanager.com/gtag/js?id=G-336164211";
+googleAnalyticsUrl.type = 'text/javascript';
+googleAnalyticsUrl.async = true;
+document.head.appendChild(googleAnalyticsUrl);
+
+var googleAnalyticsCode = document.createElement('script');
+googleAnalyticsCode.innerHTML = `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-336164211',{ 'debug_mode':true });`;
+document.head.appendChild(googleAnalyticsCode);
+//gtag('config', 'G-336164211');
+//END - Google Analytics*/
   
     /* StackMap: Start */
   
@@ -60,71 +86,7 @@
     })();
     /* StackMap: END */
   
-    /* Start of Google Analytics */
-  
-    angular.module('googleAnalytics', []);
-  
-    angular.module('googleAnalytics').run(function ($rootScope, $interval, analyticsOptions) {
-  
-      if (analyticsOptions.hasOwnProperty("enabled") && analyticsOptions.enabled) {
-  
-        if (analyticsOptions.hasOwnProperty("siteId") && analyticsOptions.siteId != '') {
-  
-          if (typeof ga === 'undefined') {
-  
-            (function (i, s, o, g, r, a, m) {
-              i['GoogleAnalyticsObject'] = r;i[r] = i[r] || function () {
-  
-                (i[r].q = i[r].q || []).push(arguments);
-              }, i[r].l = 1 * new Date();a = s.createElement(o), m = s.getElementsByTagName(o)[0];a.async = 1;a.src = g;m.parentNode.insertBefore(a, m);
-            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-  
-            ga('create', analyticsOptions.siteId, { 'alwaysSendReferrer': true });
-  
-            ga('set', 'anonymizeIp', true);
-          }
-        }
-  
-        $rootScope.$on('$locationChangeSuccess', function (event, toState, fromState) {
-  
-          if (analyticsOptions.hasOwnProperty("defaultTitle")) {
-  
-            var documentTitle = analyticsOptions.defaultTitle;
-  
-            var interval = $interval(function () {
-  
-              if (document.title !== '') documentTitle = document.title;
-  
-              if (window.location.pathname.indexOf('openurl') !== -1 || window.location.pathname.indexOf('fulldisplay') !== -1) if (angular.element(document.querySelector('prm-full-view-service-container .item-title>a')).length === 0) return;else documentTitle = angular.element(document.querySelector('prm-full-view-service-container .item-title>a')).text();
-  
-              if (typeof ga !== 'undefined') {
-  
-                if (fromState != toState) ga('set', 'referrer', fromState);
-  
-                ga('set', 'location', toState);
-  
-                ga('set', 'title', documentTitle);
-  
-                ga('send', 'pageview');
-              }
-  
-              $interval.cancel(interval);
-            }, 0);
-          }
-        });
-      }
-    });
-  
-    angular.module('googleAnalytics').value('analyticsOptions', {
-  
-      enabled: true,
-  
-      siteId: 'UA-90203519-1',
-  
-      defaultTitle: 'Search It'
-  
-    });
-  
+      
     //Add code for COVID Alert
     /*
     app.component('prmSearchBarAfterAppStoreGenerated', {
@@ -160,16 +122,19 @@
     angular
     .module('externalSearch', []).value('searchTargets', []).component('prmFacetAfterAppStoreGenerated', {
       bindings: { parentCtrl: '<' },
-      controller: ['externalSearchService', function (externalSearchService) {
+      //controller: ['externalSearchService', function (externalSearchService) {
+      controller: ['externalSearchService', '$scope', function (externalSearchService, $scope) {
         this.$onInit = function () {
         externalSearchService.setController(this.parentCtrl);
         externalSearchService.addExtSearch();
+        $scope.$watch('$ctrl.parentCtrl.facets', function(){
+          externalSearch.addExtSearch()});
         }
       }]
     }).component('prmPageNavMenuAfterAppStoreGenerated', {
       controller: ['externalSearchService', function (externalSearchService) {
         this.$onInit = function () {
-        if (externalSearchService.controller) externalSearchService.addExtSearch();
+        if (externalSearchService.getController()) externalSearchService.addExtSearch();
         }
       }]
     }).component('prmFacetExactAfterAppStoreGenerated', {
@@ -181,8 +146,10 @@
         $scope.targets = searchTargets;
         var query = $location.search().query;
         var filter = $location.search().pfilter;
-        $scope.queries = Array.isArray(query) ? query : query ? [query] : false;
-        $scope.filters = Array.isArray(filter) ? filter : filter ? [filter] : false;
+        //$scope.queries = Array.isArray(query) ? query : query ? [query] : false;
+        //$scope.filters = Array.isArray(filter) ? filter : filter ? [filter] : false;
+        $scope.queries = Object.prototype.toString.call(query) === '[object Array]' ? query : query ? [query] : false
+        $scope.filters = Object.prototype.toString.call(filter) === '[object Array]' ? filter : filter ? [filter] : false
         }
       }]
     }).factory('externalSearchService', function () {
