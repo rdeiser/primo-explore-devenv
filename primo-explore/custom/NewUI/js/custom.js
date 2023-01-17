@@ -43,7 +43,42 @@ w[l] = w[l] || [];w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js'
 })(window, document, 'script', 'dataLayer', GTM_CODE);
 /* <!-- End Google Tag Manager --> */
 
-/* Start of Google Analytics */
+    /* StackMap: Start */
+  
+    (function () {
+  
+      var a = document.querySelector("head");
+      var css1 = document.createElement("link");
+      css1.type = "text/css";
+      css1.rel = "Stylesheet";
+      css1.href = " https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css ";
+      css1.crossorigin = "anonymous";
+      a.appendChild(css1);
+  
+      var css2 = document.createElement("link");
+      css2.type = "text/css";
+      css2.rel = "Stylesheet";
+      css2.href = " https://www.stackmapintegration.com/kstate-primo2/StackMap.min.css ";
+      a.appendChild(css2);
+  
+      var w = document.createElement("script");
+      w.type = "text/javascript";w.async = true;
+      w.src = " https://www.stackmapintegration.com/kstate-primo2/StackMap.min.js ";
+      var b = document.body;
+      b.appendChild(w);
+    })();
+    /* StackMap: END */
+  
+      
+    //Add code for COVID Alert
+    /*
+    app.component('prmSearchBarAfterAppStoreGenerated', {
+        bindings: {parentCtrl: '<'},
+        template: '<md-card class="alert-bar"><md-card-content class="alert-bar-content"><p>Most K-State Libraries buildings are currently open with limited capacity. Please visit <a href="https://www.lib.k-state.edu/continuation">our continuation of services webpage</a> for updates related to COVID-19. <br> To request help, you can visit <a href="https://www.lib.k-state.edu/ask">with a librarian. </a></p></md-card-content></md-card>'
+    });
+    */
+
+    /* Start of Google Analytics */
   
 angular.module('googleAnalytics', []);
   
@@ -108,40 +143,6 @@ angular.module('googleAnalytics').value('analyticsOptions', {
 
 });
   
-    /* StackMap: Start */
-  
-    (function () {
-  
-      var a = document.querySelector("head");
-      var css1 = document.createElement("link");
-      css1.type = "text/css";
-      css1.rel = "Stylesheet";
-      css1.href = " https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css ";
-      css1.crossorigin = "anonymous";
-      a.appendChild(css1);
-  
-      var css2 = document.createElement("link");
-      css2.type = "text/css";
-      css2.rel = "Stylesheet";
-      css2.href = " https://www.stackmapintegration.com/kstate-primo2/StackMap.min.css ";
-      a.appendChild(css2);
-  
-      var w = document.createElement("script");
-      w.type = "text/javascript";w.async = true;
-      w.src = " https://www.stackmapintegration.com/kstate-primo2/StackMap.min.js ";
-      var b = document.body;
-      b.appendChild(w);
-    })();
-    /* StackMap: END */
-  
-      
-    //Add code for COVID Alert
-    /*
-    app.component('prmSearchBarAfterAppStoreGenerated', {
-        bindings: {parentCtrl: '<'},
-        template: '<md-card class="alert-bar"><md-card-content class="alert-bar-content"><p>Most K-State Libraries buildings are currently open with limited capacity. Please visit <a href="https://www.lib.k-state.edu/continuation">our continuation of services webpage</a> for updates related to COVID-19. <br> To request help, you can visit <a href="https://www.lib.k-state.edu/ask">with a librarian. </a></p></md-card-content></md-card>'
-    });
-    */
   
     //Auto activates the filter for items in full display
     //written on 2/4/20 by Joe Ferguson from the University of Tennessee, Knoxville
