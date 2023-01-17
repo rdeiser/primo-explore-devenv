@@ -2,10 +2,7 @@
   "use strict";
   'use strict';
   
-  var app = angular.module('viewCustom', ['angularLoad', 'externalSearch']);
-  
-  "use strict";
-  'use strict';
+  var app = angular.module('viewCustom', ['angularLoad', 'externalSearch', 'googleAnalytics']);
   
   /* Load jQuery */
   var jquerymini = document.createElement("script");
@@ -119,7 +116,7 @@
   
       enabled: true,
   
-      siteId: 'UA-90203519-1',
+      siteId: 'UA-40575926-3',
   
       defaultTitle: 'Search It'
   
@@ -137,59 +134,67 @@
     //written on 2/4/20 by Joe Ferguson from the University of Tennessee, Knoxville
     app.component('prmLocationItemsAfterAppStoreGenerated', {
       bindings: { parentCtrl: '<' },
-      controller: function($scope) {
-        this.$onInit = function(){
-          {
-            var myVar = setInterval(activateFilter, 1000);
-            function activateFilter() {
-              if ($("span:contains('Filters')").length) {
-                clearInterval(myVar);
-                return;
-              }
-              if ($("[id^='filter']").length) {
-                $("[id^='filter']").parent().click();
-              }
-            }
+      controller: function controller($scope) {
+        var myVar = setInterval(activateFilter, 1000);
+        function activateFilter() {
+          if ($("span:contains('Filters')").length) {
+            clearInterval(myVar);
+            return;
           }
-        };
+          if ($("[id^='filter']").length) {
+            $("[id^='filter']").parent().click();
+          }
+        }
       }
     });
   
     //Add External Search from WSU -- revised JMcWilliams 20180619
-    /*angular.module('externalSearch', []).value('searchTargets', []).component('prmFacetAfterAppStoreGenerated', {
+    angular
+    .module('externalSearch', []).value('searchTargets', []).component('prmFacetAfterAppStoreGenerated', {
       bindings: { parentCtrl: '<' },
-      controller: ['externalSearchService', function (externalSearchService) {
-        externalSearchService.controller = this.parentCtrl;
+      //controller: ['externalSearchService', function (externalSearchService) {
+      controller: ['externalSearchService', '$scope', function (externalSearchService, $scope) {
+        this.$onInit = function () {
+        externalSearchService.setController(this.parentCtrl);
         externalSearchService.addExtSearch();
+        $scope.$watch('$ctrl.parentCtrl.facets', function(){
+          externalSearch.addExtSearch()});
+        }
       }]
     }).component('prmPageNavMenuAfterAppStoreGenerated', {
       controller: ['externalSearchService', function (externalSearchService) {
-        if (externalSearchService.controller) externalSearchService.addExtSearch();
+        this.$onInit = function () {
+        if (externalSearchService.getController()) externalSearchService.addExtSearch();
+        }
       }]
     }).component('prmFacetExactAfterAppStoreGenerated', {
       bindings: { parentCtrl: '<' },
       template: '\n      <div ng-if="name === \'External Search\'">\n          <div ng-hide="$ctrl.parentCtrl.facetGroup.facetGroupCollapsed">\n              <div class="section-content animate-max-height-variable">\n                  <div class="md-chips md-chips-wrap">\n                      <div ng-repeat="target in targets" aria-live="polite" class="md-chip animate-opacity-and-scale facet-element-marker-local4">\n                          <div class="md-chip-content layout-row" role="button" tabindex="0">\n                              <strong dir="auto" title="{{ target.name }}">\n                                  <a ng-href="{{ target.url + target.mapping(queries, filters) }}" target="_blank">\n                                      <img ng-src="{{ target.img }}" width="22" height="22" alt="{{ target.alt }}" style="vertical-align:middle;"> {{ target.name }}\n                                  </a>\n                              </strong>\n                          </div>\n                      </div>\n                  </div>\n              </div>\n          </div>\n      </div>',
       controller: ['$scope', '$location', 'searchTargets', function ($scope, $location, searchTargets) {
+        this.$onInit = function () {
         $scope.name = this.parentCtrl.facetGroup.name;
         $scope.targets = searchTargets;
         var query = $location.search().query;
         var filter = $location.search().pfilter;
-        $scope.queries = Array.isArray(query) ? query : query ? [query] : false;
-        $scope.filters = Array.isArray(filter) ? filter : filter ? [filter] : false;
+        //$scope.queries = Array.isArray(query) ? query : query ? [query] : false;
+        //$scope.filters = Array.isArray(filter) ? filter : filter ? [filter] : false;
+        $scope.queries = Object.prototype.toString.call(query) === '[object Array]' ? query : query ? [query] : false
+        $scope.filters = Object.prototype.toString.call(filter) === '[object Array]' ? filter : filter ? [filter] : false
+        }
       }]
     }).factory('externalSearchService', function () {
       return {
-        get controller() {
+        getController: function () {
           return this.prmFacetCtrl || false;
         },
-        set controller(controller) {
+        setController: function (controller) {
           this.prmFacetCtrl = controller;
         },
         addExtSearch: function addExtSearch() {
-          var xx = this;
+          var xx=this;
           var checkExist = setInterval(function () {
   
-            if (xx.prmFacetCtrl.facetService.results[0] && xx.prmFacetCtrl.facetService.results[0].name != "External Search") {
+            if (xx.prmFacetCtrl.facetService.results[0] && xx.prmFacetCtrl.facetService.results[0].name !="External Search") {
               if (xx.prmFacetCtrl.facetService.results.name !== 'External Search') {
                 xx.prmFacetCtrl.facetService.results.unshift({
                   name: 'External Search',
@@ -233,13 +238,15 @@
       }
     }, {
       "name": "Google Scholar",
-      "url": "https://scholar.google.com/scholar?q=",
+      "url": "https://scholar.google.com/scholar?inst=6485013114777526331&q=",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/200px-Google_%22G%22_Logo.svg.png",
       "alt": "Google Scholar Logo",
       mapping: function mapping(queries, filters) {
         try {
           return queries.map(function (part) {
-            return part.split(",")[2] || "";
+           var terms = part.split(/^(any\,contains\,)/)[2];
+           var termed = terms.split(/(\,AND)$/)[0];
+           return termed.replace(/~2F/, "%2F");
           }).join(' ');
         } catch (e) {
           return '';
@@ -247,10 +254,21 @@
       }
     }, {
       "name": "EBSCO",
-      "url": "http://er.lib.ksu.edu/login?url=http://search.ebscohost.com/login.aspx?authtype=ip&profile=ehost",
+      "url": "http://er.lib.ksu.edu/login?url=http://search.ebscohost.com/login.aspx?direct=true&scope=site&type=1&site=ehost-live&db=27h,aph,gnh,agr,awh,ahl,h9h,h9i,h9j,h9k,h9m,ant,asa,aax,aft,ndh,n4h,n9h,n8h,buh,ufh,cph,c9h,e872sww,cja,eric,eax,eft,hev,zbh,funk,8gh,hxh,hch,e871sww,khh,hjh,fqh,lgh,lxh,llf,lii,e870sww,lfh,e865sww,ulh,cmedm,kah,mzh,e864sww,f5h,msn,lth,mmt,e866sww,mih,mth,mah,n5h,nsm,ddu,24h,pix,e867sww,prh,tfh,pbh,rft,rgr,bwh,rlh,sph,b9h,tth,trh,tdh,voh,nmr,fzh,nlebk,e001mww&lang=en&authtype=ip&bquery=",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/EBSCO_Information_Services_20xx_logo.svg/200px-EBSCO_Information_Services_20xx_logo.svg.png",
-      "alt": "EBSCO Logo"
-    }]);*/
+      "alt": "EBSCO Logo",
+      mapping: function mapping(queries, filters) {
+        try {
+          return queries.map(function (part) {
+           var terms = part.split(/^(any\,contains\,)/)[2];
+           var termed = terms.split(/(\,AND)$/)[0];
+           return termed.replace(/~2F/, "%2F");
+          }).join(' ');
+        } catch (e) {
+          return '';
+        }
+      }
+    }]);
   
     /****************************************************************************************************/
     // Begin BrowZine - Primo Integration...
@@ -291,17 +309,13 @@
     browzine.script.src = "https://s3.amazonaws.com/browzine-adapters/primo/browzine-primo-adapter.js";
     document.head.appendChild(browzine.script);
   
-    app.controller('prmSearchResultAvailabilityLineAfterAppStoreGeneratedControllerAppStoreGeneratedAppStoreGenerated', function($scope) {
-      this.$onInit = function(){
-        {
-          window.browzine.primo.searchResult($scope);
-        }
-      };
+    app.controller('prmSearchResultAvailabilityLineAfterAppStoreGeneratedControllerAppStoreGenerated', function ($scope) {
+      window.browzine.primo.searchResult($scope);
     });
   
     app.component('prmSearchResultAvailabilityLineAfterAppStoreGenerated', {
       bindings: { parentCtrl: '<' },
-      controller: 'prmSearchResultAvailabilityLineAfterAppStoreGeneratedControllerAppStoreGeneratedAppStoreGenerated'
+      controller: 'prmSearchResultAvailabilityLineAfterAppStoreGeneratedControllerAppStoreGenerated'
     });
     // ... End BrowZine - Primo Integration
   
@@ -319,7 +333,7 @@
     chatFrameWrap.appendChild(needsJs);
   
     var chatButton = document.createElement('button');
-    chatButton.innerHTML = "<img src=\"custom/01KSU_INST-NewUI/img/output-onlinepngtools.png\" width=\"119px\" height=\"64.766px\">";
+    chatButton.innerHTML = "<img src=\"custom/01KSU_INST-NewUI/img/output-onlinepngtools.png\" width=\"79px\" height=\"43px\">";
     chatButton.setAttribute('style', 'position: fixed; top: 400px; right 10px; padding: 0; right: 10px; border: 0 none; z-index: 200; box-shadow: none;  text-align: center; display: inline-block; text-decoration: none; background:transparent;');
   
     var showChat = false;
@@ -341,11 +355,9 @@
   
     var s = document.createElement('script');
     s.id = 'localScript';
-    s.src = 'https://libraryh3lp.com/js/libraryh3lp.js?11156';
+    s.src = 'https://libraryh3lp.com/js/libraryh3lp.js?11063';
     document.body.appendChild(s);
     /*---------------LibraryH3lp code ends here---------------*/
-  
-     
   })();
   
   //Auto generated code by primo app store DO NOT DELETE!!! -START-
@@ -353,12 +365,8 @@
       hookName is a place holder with should hold the hook name not including "prm" at the beginning and in upper camel case
       e.g: for hook prmSearchBarAfter (in html prm-search-bar-after) it should be given "SearchBarAfter"
    */
-  app.controller('FacetAfterController', [function() {
+  app.controller('FacetAfterController', [function () {
     var vm = this;
-
-    this.$onInit = function(){
-      {}
-    };
   }]);
   
   app.component('prmFacetAfter', {
@@ -375,12 +383,8 @@
       hookName is a place holder with should hold the hook name not including "prm" at the beginning and in upper camel case
       e.g: for hook prmSearchBarAfter (in html prm-search-bar-after) it should be given "SearchBarAfter"
    */
-  app.controller('FacetExactAfterController', [function() {
+  app.controller('FacetExactAfterController', [function () {
     var vm = this;
-
-    this.$onInit = function(){
-      {}
-    };
   }]);
   
   app.component('prmFacetExactAfter', {
@@ -397,12 +401,8 @@
       hookName is a place holder with should hold the hook name not including "prm" at the beginning and in upper camel case
       e.g: for hook prmSearchBarAfter (in html prm-search-bar-after) it should be given "SearchBarAfter"
    */
-  app.controller('LocationItemsAfterController', [function() {
+  app.controller('LocationItemsAfterController', [function () {
     var vm = this;
-
-    this.$onInit = function(){
-      {}
-    };
   }]);
   
   app.component('prmLocationItemsAfter', {
@@ -419,12 +419,8 @@
       hookName is a place holder with should hold the hook name not including "prm" at the beginning and in upper camel case
       e.g: for hook prmSearchBarAfter (in html prm-search-bar-after) it should be given "SearchBarAfter"
    */
-  app.controller('PageNavMenuAfterController', [function() {
+  app.controller('PageNavMenuAfterController', [function () {
     var vm = this;
-
-    this.$onInit = function(){
-      {}
-    };
   }]);
   
   app.component('prmPageNavMenuAfter', {
@@ -441,12 +437,8 @@
       hookName is a place holder with should hold the hook name not including "prm" at the beginning and in upper camel case
       e.g: for hook prmSearchBarAfter (in html prm-search-bar-after) it should be given "SearchBarAfter"
    */
-  app.controller('SearchBarAfterController', [function() {
+  app.controller('SearchBarAfterController', [function () {
     var vm = this;
-
-    this.$onInit = function(){
-      {}
-    };
   }]);
   
   app.component('prmSearchBarAfter', {
@@ -463,12 +455,8 @@
       hookName is a place holder with should hold the hook name not including "prm" at the beginning and in upper camel case
       e.g: for hook prmSearchBarAfter (in html prm-search-bar-after) it should be given "SearchBarAfter"
    */
-  app.controller('SearchResultAvailabilityLineAfterController', [function() {
+  app.controller('SearchResultAvailabilityLineAfterController', [function () {
     var vm = this;
-
-    this.$onInit = function(){
-      {}
-    };
   }]);
   
   app.component('prmSearchResultAvailabilityLineAfter', {
