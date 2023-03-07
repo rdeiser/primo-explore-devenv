@@ -43,6 +43,23 @@ w[l] = w[l] || [];w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js'
 })(window, document, 'script', 'dataLayer', GTM_CODE);
 /* <!-- End Google Tag Manager --> */
 
+/*//START - Google Analytics
+
+var googleAnalyticsUrl = document.createElement('script');
+googleAnalyticsUrl.src = "https://www.googletagmanager.com/gtag/js?id=G-336164211";
+googleAnalyticsUrl.type = 'text/javascript';
+googleAnalyticsUrl.async = true;
+document.head.appendChild(googleAnalyticsUrl);
+
+var googleAnalyticsCode = document.createElement('script');
+googleAnalyticsCode.innerHTML = `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-336164211',{ 'debug_mode':true });`;
+document.head.appendChild(googleAnalyticsCode);
+//gtag('config', 'G-336164211');
+//END - Google Analytics*/
+  
     /* StackMap: Start */
   
     (function () {
@@ -78,7 +95,7 @@ w[l] = w[l] || [];w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js'
     });
     */
 
-    /* Start of Google Analytics */
+        /* Start of Google Analytics */
   
 angular.module('googleAnalytics', []);
   
@@ -142,7 +159,6 @@ angular.module('googleAnalytics').value('analyticsOptions', {
   defaultTitle: 'Search It'
 
 });
-  
   
     //Auto activates the filter for items in full display
     //written on 2/4/20 by Joe Ferguson from the University of Tennessee, Knoxville
@@ -263,7 +279,9 @@ angular.module('googleAnalytics').value('analyticsOptions', {
       mapping: function mapping(queries, filters) {
         try {
           return queries.map(function (part) {
-            return part.split(",")[2] || "";
+           var terms = part.split(/^(any\,contains\,)/)[2];
+           var termed = terms.split(/(\,AND)$/)[0];
+           return termed.replace(/~2F/, "%2F");
           }).join(' ');
         } catch (e) {
           return '';
@@ -271,9 +289,20 @@ angular.module('googleAnalytics').value('analyticsOptions', {
       }
     }, {
       "name": "EBSCO",
-      "url": "http://er.lib.ksu.edu/login?url=http://search.ebscohost.com/login.aspx?authtype=ip&profile=ehost",
+      "url": "http://er.lib.ksu.edu/login?url=http://search.ebscohost.com/login.aspx?direct=true&scope=site&type=1&site=ehost-live&db=27h,aph,gnh,agr,awh,ahl,h9h,h9i,h9j,h9k,h9m,ant,asa,aax,aft,ndh,n4h,n9h,n8h,buh,ufh,cph,c9h,e872sww,cja,eric,eax,eft,hev,zbh,funk,8gh,hxh,hch,e871sww,khh,hjh,fqh,lgh,lxh,llf,lii,e870sww,lfh,e865sww,ulh,cmedm,kah,mzh,e864sww,f5h,msn,lth,mmt,e866sww,mih,mth,mah,n5h,nsm,ddu,24h,pix,e867sww,prh,tfh,pbh,rft,rgr,bwh,rlh,sph,b9h,tth,trh,tdh,voh,nmr,fzh,nlebk,e001mww&lang=en&authtype=ip&bquery=",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/EBSCO_Information_Services_20xx_logo.svg/200px-EBSCO_Information_Services_20xx_logo.svg.png",
-      "alt": "EBSCO Logo"
+      "alt": "EBSCO Logo",
+      mapping: function mapping(queries, filters) {
+        try {
+          return queries.map(function (part) {
+           var terms = part.split(/^(any\,contains\,)/)[2];
+           var termed = terms.split(/(\,AND)$/)[0];
+           return termed.replace(/~2F/, "%2F");
+          }).join(' ');
+        } catch (e) {
+          return '';
+        }
+      }
     }]);
   
     /****************************************************************************************************/
