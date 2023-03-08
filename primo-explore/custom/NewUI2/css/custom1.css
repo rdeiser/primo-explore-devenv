@@ -1,3 +1,24 @@
+/*Modifying Collection Search background color*/
+prm-collection-gallery-header .collection-header-inner.has-transparent-topbar, .collection-header-inner {
+  background-image: none !important;
+  background-color: #73529f !important;
+  z-index: 0;
+}
+
+/*adding Call Number: before call number in I-Frame*/
+[ng-if*="$ctrl.loc.location.callNumber"]:last-of-type:before, [ng-if*="$ctrl.currLoc.location.callNumber"]:last-of-type:before, [ng-if*="$ctrl.currLoc.location.callNumber"]:last-of-type:before {
+  content: " Call Number: ";
+  font-weight: bold;
+  color:#73529f;
+}
+
+/*adding Call Number: before call number in brief results*/
+.availability-line-parenthesis:first-of-type:after {
+  content: "Call Number: ";
+  font-weight: bold;
+  color:#73529f;
+   
+}
 /* primary color hook */
 .md-button {
   color: #73529f; }
@@ -171,7 +192,7 @@
 .prm-primary-bg, prm-spinner.overlay-cover.light-on-dark:after, prm-search-bar, prm-journals-search-bar {
   color: black;
   background-color: #73529f; }
-  .prm-primary-bg.prm-hue1, prm-spinner.prm-hue1.overlay-cover.light-on-dark:after, prm-topbar .top-nav-bar, prm-search-bar.prm-hue1, prm-journals-search-bar.prm-hue1 {
+  .transparent-top-bar, .prm-primary-bg.prm-hue1, prm-spinner.prm-hue1.overlay-cover.light-on-dark:after, prm-topbar .top-nav-bar, prm-search-bar.prm-hue1, prm-journals-search-bar.prm-hue1 {
     background-color: #512888; }
   .prm-primary-bg.prm-hue2, prm-spinner.prm-hue2.overlay-cover.light-on-dark:after, prm-search-bar.prm-hue2, prm-journals-search-bar.prm-hue2, md-backdrop.md-opaque {
     background-color: #40206c; }
