@@ -8,16 +8,11 @@ prm-collection-gallery-header .collection-header-inner.has-transparent-topbar, .
 /*adding Call Number: before call number in I-Frame*/
 [ng-if*="$ctrl.loc.location.callNumber"]:last-of-type:before, [ng-if*="$ctrl.currLoc.location.callNumber"]:last-of-type:before, [ng-if*="$ctrl.currLoc.location.callNumber"]:last-of-type:before {
   content: " Call Number: ";
-  font-weight: bold;
-  color:#73529f;
 }
 
 /*adding Call Number: before call number in brief results*/
 .availability-line-parenthesis:first-of-type:after {
-  content: "Call Number: ";
-  font-weight: bold;
-  color:#73529f;
-   
+  content: "Call Number: ";   
 }
 /* primary color hook */
 .md-button {
