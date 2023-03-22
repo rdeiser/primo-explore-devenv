@@ -86,14 +86,41 @@ document.head.appendChild(googleAnalyticsCode);
     })();
     /* StackMap: END */
   
-      
+
+    /*Adding Author and Date for Digital Collections*/
+    /*For creators look at addata.addau*/
+    app.component('prmGalleryItemAfter', {
+      bindings: {
+      parentCtrl: '<'
+      },
+      controller: function () {
+      var $ctrl = this;
+      $ctrl.$onInit = function () {
+      try {
+      $ctrl.author = $ctrl.parentCtrl.item.pnx.addata.au[0];
+      } catch (e) {
+      $ctrl.author = '';
+      }
+      try {
+      $ctrl.date = $ctrl.parentCtrl.item.pnx.display.creationdate[0];
+      } catch (e) {
+      $ctrl.date = '';
+      }
+      $ctrl.hasDate = !!$ctrl.date;
+      $ctrl.hasAuthor = !!$ctrl.author;
+      };
+      },
+      template: '<div ng-if="$ctrl.hasDate">{{$ctrl.date}}</div> <div ng-if="$ctrl.hasAuthor">{{$ctrl.author}}</div>'
+      });
     //Add code for COVID Alert
-    /*
-    app.component('prmSearchBarAfterAppStoreGenerated', {
+    
+    /*app.component('prmSearchBarAfterAppStoreGenerated', {
         bindings: {parentCtrl: '<'},
         template: '<md-card class="alert-bar"><md-card-content class="alert-bar-content"><p>Most K-State Libraries buildings are currently open with limited capacity. Please visit <a href="https://www.lib.k-state.edu/continuation">our continuation of services webpage</a> for updates related to COVID-19. <br> To request help, you can visit <a href="https://www.lib.k-state.edu/ask">with a librarian. </a></p></md-card-content></md-card>'
-    });
-    */
+    });*/
+    
+
+    
 
         /* Start of Google Analytics */
   
