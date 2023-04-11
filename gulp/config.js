@@ -166,8 +166,10 @@ var SERVERS = {
  *   var PROXY_SERVER = 'http://abc-primo.hosted.exlibrisgroup.com'
  *   var PROXY_SERVER = 'https://abc-primo.hosted.exlibrisgroup.com:443'
  */
-var PROXY_SERVER = 'https://k-state.primo.exlibrisgroup.com:443';
-//var PROXY_SERVER = 'https://k-state-psb.primo.exlibrisgroup.com:443';
+var PROXY_SERVER = 'https://k-state.primo.exlibrisgroup.com:443'; // VE Production Server
+// var PROXY_SERVER = 'https://k-state-psb.primo.exlibrisgroup.com:443'; // Sandbox VE Server
+//var PROXY_SERVER = 'https://k-state-primosb.hosted.exlibrisgroup.com:443'; // Sandbox BO Server
+//var PROXY_SERVER = 'https://k-state-primo.hosted.exlibrisgroup.com:443'; // Production BO Server
 
 
 let buildParams = {

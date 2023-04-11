@@ -1,3 +1,44 @@
+/*Collection Discovery Top Banner*/
+.prm-explore-main .header .transparent-top-bar div, prm-explore-main .header, prm-explore-main .header .transparent-top-bar:before, prm-search-bookmark-filter .md-button {
+  background-color: #512888 ;
+  color: #000000;
+  }
+
+prm-collection-gallery-header .collection-header-inner.has-transparent-topbar, .collection-header-inner, .collection-header-inner.has-backdrop-image::before {
+    background-image: none !important;
+    background-color: #73529f !important;
+    opacity:unset !important;
+    z-index: 0;
+  }
+
+/*Collection Disocery author and date*/
+prm-gallery-item-after {
+  padding: 20px 15px;
+  display: block;
+  margin-top: -30px;
+}   
+prm-gallery-item-after div {
+  margin-bottom: -40px;
+  margin-top: -20px;
+}
+.is-grid-view prm-gallery-item .collection-element {
+  padding: 15px;
+}
+prm-gallery-item .collection-element .item-title {
+ padding-bottom: 30px;
+}
+
+/*adding Call Number: before call number in I-Frame*/
+[ng-if*="$ctrl.loc.location.callNumber"]:last-of-type:before, [ng-if*="$ctrl.currLoc.location.callNumber"]:last-of-type:before, [ng-if*="$ctrl.currLoc.location.callNumber"]:last-of-type:before {
+  content: " Call Number: ";
+}
+
+/*adding Call Number: before call number in brief results*/
+.availability-line-parenthesis:first-of-type:after {
+  content: "Call Number: ";
+   
+}
+
 /* primary color hook */
 .md-button {
   color: #73529f; }
