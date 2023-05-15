@@ -1,536 +1,535 @@
-/*adding Call Number: before call number in I-Frame*/
-[ng-if*="$ctrl.loc.location.callNumber"]:last-of-type:before, [ng-if*="$ctrl.currLoc.location.callNumber"]:last-of-type:before, [ng-if*="$ctrl.currLoc.location.callNumber"]:last-of-type:before {
-  content: " Call Number: ";
-}
-
-/*adding Call Number: before call number in brief results*/
-.availability-line-parenthesis:first-of-type:after {
-  content: "Call Number: ";
-}
-
-/* primary color hook */
-.md-button {
-  color: #73529f; }
-  .md-button:hover:not([disabled]), .md-button:focus:not([disabled]), .md-button.hovered:not([disabled]), .md-button.md-focused:not([disabled]), .md-button._md-focused:not([disabled]) {
-    color: #73529f;
-    background-color: rgba(58, 58, 58, 0.1); }
-  .light-on-dark-dialog .md-button {
-    color: white; }
-    .light-on-dark-dialog .md-button:hover:not([disabled]), .light-on-dark-dialog .md-button:focus:not([disabled]), .light-on-dark-dialog .md-button.hovered:not([disabled]), .light-on-dark-dialog .md-button.md-focused:not([disabled]), .light-on-dark-dialog .md-button._md-focused:not([disabled]) {
-      color: white;
-      background-color: rgba(255, 255, 255, 0.08); }
+(function(){
+  "use strict";
+  'use strict';
   
-     .md-button.md-secondary {
-    color: #512888; }
+  var app = angular.module('viewCustom', ['angularLoad', 'externalSearch', 'googleAnalytics']);
+  
+  "use strict";
+  'use strict';
+  
+  /* Load jQuery */
+  var jquerymini = document.createElement("script");
+  jquerymini.type = "text/javascript";
+  jquerymini.async = true;
+  jquerymini.src = "https://code.jquery.com/jquery-2.2.4.min.js";
+  var c = document.getElementsByTagName("script")[0];
+  c.parentNode.insertBefore(jquerymini, c);
+  
+  /* Load LibAnswers 
+  var LibAnswers = document.createElement("script");
+  LibAnswers.type = "text/javascript";
+  LibAnswers.async = true;
+  LibAnswers.src = "https://v2.libanswers.com/load_chat.php?hash=8695fcdfdfdf1ec2b50aabde6d1afd61";
+  var d = document.getElementsByTagName("script")[0];
+  d.parentNode.insertBefore(LibAnswers, d); 
+  */
+  
+  (function () {
+    "use strict";
+    'use strict';
+  
+    /****************************************************************************************************/
+  
+    /*In case of CENTRAL_PACKAGE - comment out the below line to replace the other module definition*/
+  
+    /****************************************************************************************************/
+
+    /* <!-- Google Tag Manager --> added to track events within Primo VE--red 07 October 2022 */
+var GTM_CODE = 'GTM-TPRGS9R';
+(function (w, d, s, l, i) {
+w[l] = w[l] || [];w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });var f = d.getElementsByTagName(s)[0],
+  j = d.createElement(s),
+  dl = l != 'dataLayer' ? '&l=' + l : '';j.async = true;j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', GTM_CODE);
+/* <!-- End Google Tag Manager --> */
+
+/*//START - Google Analytics
+
+var googleAnalyticsUrl = document.createElement('script');
+googleAnalyticsUrl.src = "https://www.googletagmanager.com/gtag/js?id=G-336164211";
+googleAnalyticsUrl.type = 'text/javascript';
+googleAnalyticsUrl.async = true;
+document.head.appendChild(googleAnalyticsUrl);
+
+var googleAnalyticsCode = document.createElement('script');
+googleAnalyticsCode.innerHTML = `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-336164211',{ 'debug_mode':true });`;
+document.head.appendChild(googleAnalyticsCode);
+//gtag('config', 'G-336164211');
+//END - Google Analytics*/
+  
+    /* StackMap: Start */
+  
+    (function () {
+  
+      var a = document.querySelector("head");
+      var css1 = document.createElement("link");
+      css1.type = "text/css";
+      css1.rel = "Stylesheet";
+      css1.href = " https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css ";
+      css1.crossorigin = "anonymous";
+      a.appendChild(css1);
+  
+      var css2 = document.createElement("link");
+      css2.type = "text/css";
+      css2.rel = "Stylesheet";
+      css2.href = " https://www.stackmapintegration.com/kstate-primo2/StackMap.min.css ";
+      a.appendChild(css2);
+  
+      var w = document.createElement("script");
+      w.type = "text/javascript";w.async = true;
+      w.src = " https://www.stackmapintegration.com/kstate-primo2/StackMap.min.js ";
+      var b = document.body;
+      b.appendChild(w);
+    })();
+    /* StackMap: END */
+  
       
-	    
+    //Add code for COVID Alert
+    /*
+    app.component('prmSearchBarAfterAppStoreGenerated', {
+        bindings: {parentCtrl: '<'},
+        template: '<md-card class="alert-bar"><md-card-content class="alert-bar-content"><p>Most K-State Libraries buildings are currently open with limited capacity. Please visit <a href="https://www.lib.k-state.edu/continuation">our continuation of services webpage</a> for updates related to COVID-19. <br> To request help, you can visit <a href="https://www.lib.k-state.edu/ask">with a librarian. </a></p></md-card-content></md-card>'
+    });
+    */
+
+        /* Start of Google Analytics */
   
-  .md-button.button-prompt {
-    color: #FFFCC4; }
-    .md-button.button-prompt:hover:not([disabled]), .md-button.button-prompt:focus:not([disabled]), .md-button.button-prompt.hovered:not([disabled]), .md-button.button-prompt.md-focused:not([disabled]), .md-button.button-prompt._md-focused:not([disabled]) {
-      color: #fff75e;
-      background-color: rgba(255, 252, 196, 0.1); }
-  .md-button.button-warn {
-    color: #E1523D; }
-    .md-button.button-warn:hover:not([disabled]), .md-button.button-warn:focus:not([disabled]), .md-button.button-warn.hovered:not([disabled]), .md-button.button-warn.md-focused:not([disabled]), .md-button.button-warn._md-focused:not([disabled]) {
-      color: #E1523D;
-      background-color: rgba(225, 82, 61, 0.1); }
+angular.module('googleAnalytics', []);
   
-    .md-button.button-link.link-alt-color, .section-title prm-icon.md-button.button-link, .section-title md-grid-tile .tile-content > prm-icon.md-button, md-grid-tile .section-title .tile-content > prm-icon.md-button, .section-title
-    .tiles-grid-tile .tile-content > prm-icon.md-button,
-    .tiles-grid-tile .section-title .tile-content > prm-icon.md-button, md-grid-tile .tile-content > .md-button.link-alt-color,
-    .tiles-grid-tile .tile-content > .md-button.link-alt-color {
-      color: #000001; }
-      .md-button.button-link.link-alt-color:hover:not([disabled]), .section-title prm-icon.md-button.button-link:hover:not([disabled]), .section-title md-grid-tile .tile-content > prm-icon.md-button:hover:not([disabled]), md-grid-tile .section-title .tile-content > prm-icon.md-button:hover:not([disabled]), .section-title
-      .tiles-grid-tile .tile-content > prm-icon.md-button:hover:not([disabled]),
-      .tiles-grid-tile .section-title .tile-content > prm-icon.md-button:hover:not([disabled]), md-grid-tile .tile-content > .md-button.link-alt-color:hover:not([disabled]),
-      .tiles-grid-tile .tile-content > .md-button.link-alt-color:hover:not([disabled]), .md-button.button-link.link-alt-color:focus:not([disabled]), .section-title prm-icon.md-button.button-link:focus:not([disabled]), .section-title md-grid-tile .tile-content > prm-icon.md-button:focus:not([disabled]), md-grid-tile .section-title .tile-content > prm-icon.md-button:focus:not([disabled]), .section-title
-      .tiles-grid-tile .tile-content > prm-icon.md-button:focus:not([disabled]),
-      .tiles-grid-tile .section-title .tile-content > prm-icon.md-button:focus:not([disabled]), md-grid-tile .tile-content > .md-button.link-alt-color:focus:not([disabled]),
-      .tiles-grid-tile .tile-content > .md-button.link-alt-color:focus:not([disabled]), .md-button.button-link.link-alt-color.hovered:not([disabled]), .section-title prm-icon.md-button.button-link.hovered:not([disabled]), .section-title md-grid-tile .tile-content > prm-icon.md-button.hovered:not([disabled]), md-grid-tile .section-title .tile-content > prm-icon.md-button.hovered:not([disabled]), .section-title
-      .tiles-grid-tile .tile-content > prm-icon.md-button.hovered:not([disabled]),
-      .tiles-grid-tile .section-title .tile-content > prm-icon.md-button.hovered:not([disabled]), md-grid-tile .tile-content > .md-button.link-alt-color.hovered:not([disabled]),
-      .tiles-grid-tile .tile-content > .md-button.link-alt-color.hovered:not([disabled]), .md-button.button-link.link-alt-color.md-focused:not([disabled]), .section-title prm-icon.md-button.button-link.md-focused:not([disabled]), .section-title md-grid-tile .tile-content > prm-icon.md-button.md-focused:not([disabled]), md-grid-tile .section-title .tile-content > prm-icon.md-button.md-focused:not([disabled]), .section-title
-      .tiles-grid-tile .tile-content > prm-icon.md-button.md-focused:not([disabled]),
-      .tiles-grid-tile .section-title .tile-content > prm-icon.md-button.md-focused:not([disabled]), md-grid-tile .tile-content > .md-button.link-alt-color.md-focused:not([disabled]),
-      .tiles-grid-tile .tile-content > .md-button.link-alt-color.md-focused:not([disabled]), .md-button.button-link.link-alt-color._md-focused:not([disabled]), .section-title prm-icon.md-button.button-link._md-focused:not([disabled]), .section-title md-grid-tile .tile-content > prm-icon.md-button._md-focused:not([disabled]), md-grid-tile .section-title .tile-content > prm-icon.md-button._md-focused:not([disabled]), .section-title
-      .tiles-grid-tile .tile-content > prm-icon.md-button._md-focused:not([disabled]),
-      .tiles-grid-tile .section-title .tile-content > prm-icon.md-button._md-focused:not([disabled]), md-grid-tile .tile-content > .md-button.link-alt-color._md-focused:not([disabled]),
-      .tiles-grid-tile .tile-content > .md-button.link-alt-color._md-focused:not([disabled]) {
-        color: black;
-        background-color: rgba(0, 0, 1, 0.1); }
-  .md-button.button-large {
-    font-size: 1.2em;
-    padding: .25em .75em; }
-    .md-button.button-large.button-with-icon {
-      padding-left: .5em; }
-      .md-button.button-large.button-with-icon > prm-icon + span {
-        padding-right: 0; }
-  .md-button.button-zero-radius {
-    border-radius: 0; }
-  .md-button.button-no-hover:hover {
-    background-color: transparent; }
-  .md-button.md-icon-button.square-button {
-    border-radius: 0; }
-  .md-button.md-icon-button.icon-button-large {
-    height: 50px;
-    width: 50px;
-    min-height: 50px;
-    min-width: 50px; }
-    .md-button.md-icon-button.icon-button-large md-icon {
-      height: 40px;
-      width: 40px;
-      min-height: 40px;
-      min-width: 40px; }
-    .md-button.md-icon-button.icon-button-large prm-icon {
-      position: relative;
-      left: -4px;
-      top: -3px; }
-  .md-button.button-with-icon > prm-icon {
-    display: inline-block; }
-    .md-button.button-with-icon > prm-icon md-icon {
-      position: relative;
-      top: -2px; }
-    .md-button.button-with-icon > prm-icon + span {
-      display: inline-block;
-      margin-left: 3px;
-      padding-right: 0.5em; }
-      [dir=rtl] .md-button.button-with-icon > prm-icon + span {
-        padding-right: 0;
-        padding-left: 0.5em; }
-      .md-button.button-large .md-button.button-with-icon > prm-icon + span {
-        padding-right: 0; }
-  .md-button.button-with-icon > span + prm-icon {
-    margin-right: 0; }
-    .md-button.button-with-icon > span + prm-icon md-icon {
-      margin-left: 5px;
-      margin-right: 0; }
-  .md-button.icon-button-with-text, prm-action-list > md-nav-bar .md-nav-item .md-button, .saved-query-list > md-nav-bar .md-nav-item .md-button {
-    font-size: 10px;
-    line-height: 14px;
-    font-weight: 600;
-    letter-spacing: 0.03em; }
-  .md-button.outline-button {
-    border: 1px solid; }
-  .md-button.md-raised:not([disabled]) {
-    box-shadow: 0 2px 8px -4px rgba(0, 0, 0, 0.26); }
-  .md-button[disabled="disabled"] {
-    color: #ccc !important;
-    cursor: not-allowed; }
-	
-	/* sign in area*/
-  .bar prm-authentication .md-button, .md-button.button-as-link {
-    font-size: 1.5em;
-    color: #c51a07;
-}
-     .md-button.flex-button {
-    display: -ms-flexbox;
-    display: flex; }
-  .md-button.inline-button {
-    display: inline; }
-    .md-button.inline-button.flex-button {
-      display: -ms-inline-flexbox;
-      display: inline-flex; }
-  .md-button.md-mini {
-    line-height: 40px;
-    width: 40px;
-    height: 40px;
-    min-width: 40px; }
-  .md-button.multi-line-button, .__sm prm-search-bar .search-switch-buttons .md-button, .__sm prm-journals-search-bar .search-switch-buttons .md-button {
-    white-space: normal;
-    line-height: 1.2em;
-    padding: .5em; }
-  .md-button.button-full-height {
-    height: 100%; }
-  .md-button.neutralized-button {
-    max-width: none;
-    max-height: none;
-    text-transform: none;
-    padding: 0;
-    margin: 0;
-    line-height: inherit;
-    min-height: 0;
-    min-width: 0;
-    white-space: normal;
-    text-align: inherit;
-    overflow: visible;
-    font-size: 1em;
-    border-radius: 0; }
-    .md-button.neutralized-button:hover {
-      background-color: transparent; }
-  .md-button.arrow-link-button .button-content {
-    line-height: 1.4em; }
-  .md-button.arrow-link-button:hover, .md-button.arrow-link-button:focus {
-    background: transparent; }
-  .md-button.arrow-link-button [link-arrow] {
-    position: static; }
-  .buttons-group .md-button {
-    box-shadow: 1px 0 0 0 rgba(0, 0, 0, 0.1); }
-    .buttons-group .md-button:first-child {
-      box-shadow: 1px 0 0 0 rgba(0, 0, 0, 0.1), -1px 0 0 0 rgba(0, 0, 0, 0.1); }
-      [dir="rtl"] .buttons-group .md-button:first-child {
-        box-shadow: 1px 0 0 0 rgba(0, 0, 0, 0.1); }
-    [dir="rtl"] .buttons-group .md-button:last-child {
-      box-shadow: 1px 0 0 0 rgba(0, 0, 0, 0.1), -1px 0 0 0 rgba(0, 0, 0, 0.1); }
-  .md-button .md-ripple-container + .md-ripple-container {
-    display: none; }
+angular.module('googleAnalytics').run(function ($rootScope, $interval, analyticsOptions) {
 
-.prm-primary-color, .result-item-actions .md-icon-button, .result-item-actions .more-options-button, prm-add-query-to-saved-searches .custom-button, .md-autocomplete-suggestions .suggestion-scope, md-tabs md-tabs-wrapper md-tabs-canvas md-pagination-wrapper md-tab-item.md-active:not([disabled]), md-tabs md-tabs-wrapper md-tabs-canvas md-pagination-wrapper md-tab-item.md-focused:not([disabled]), md-tab-content .tab-content-header md-input-container md-select-value .md-text {
-  color: #73529f; }
+  if (analyticsOptions.hasOwnProperty("enabled") && analyticsOptions.enabled) {
 
-.prm-primary-bg, prm-spinner.overlay-cover.light-on-dark:after, prm-search-bar, prm-journals-search-bar {
-  color: black;
-  background-color: #73529f; }
-  .prm-primary-bg.prm-hue1, prm-spinner.prm-hue1.overlay-cover.light-on-dark:after, prm-topbar .top-nav-bar, prm-search-bar.prm-hue1, prm-journals-search-bar.prm-hue1 {
-    background-color: #512888; }
-  .prm-primary-bg.prm-hue2, prm-spinner.prm-hue2.overlay-cover.light-on-dark:after, prm-search-bar.prm-hue2, prm-journals-search-bar.prm-hue2, md-backdrop.md-opaque {
-    background-color: #40206c; }
-  .prm-primary-bg.prm-hue3, prm-spinner.prm-hue3.overlay-cover.light-on-dark:after, prm-search-bar.prm-hue3, prm-journals-search-bar.prm-hue3 {
-    background-color: #391c61; }
-    .prm-primary-bg.prm-hue3-important, prm-spinner.prm-hue3-important.overlay-cover.light-on-dark:after, prm-user-area md-fab-toolbar.md-is-open md-fab-trigger .md-fab-toolbar-background, prm-user-area md-fab-toolbar.md-is-open md-fab-trigger ._md-fab-toolbar-background, prm-search-bar.prm-hue3-important, prm-journals-search-bar.prm-hue3-important {
-      background-color: #391c61 !important; }
-  .prm-primary-bg.prm-hue4, prm-spinner.prm-hue4.overlay-cover.light-on-dark:after, prm-search-bar.prm-hue4, prm-journals-search-bar.prm-hue4 {
-    background-color: #371e5d; }
+    if (analyticsOptions.hasOwnProperty("siteId") && analyticsOptions.siteId != '') {
 
-.prm-primary-border {
-  border-color: #73529f; }
-  .prm-primary-border.prm-hue1 {
-    border-color: #73529f; }
-  .prm-primary-border.prm-hue2 {
-    border-color: #73529f; }
+      if (typeof ga === 'undefined') {
 
-.prm-secondary-color, prm-search-bookmark-filter .md-button, prm-topbar .top-nav-bar {
-  color: #512888; }
-  .prm-secondary-color.prm-hue1, .link-alt-color, .section-title prm-icon, .result-item-actions .pin-button, prm-add-query-to-saved-searches .custom-button.pin-button, prm-search-bookmark-filter .prm-hue1.md-button, prm-topbar .prm-hue1.top-nav-bar, prm-recomendation-item .media-on-hover .pin-button {
-    color: #73529f; }
-  .prm-secondary-color.prm-hue2, prm-search-bookmark-filter .prm-hue2.md-button, prm-topbar .prm-hue2.top-nav-bar {
-    color: #100819; }
+        (function (i, s, o, g, r, a, m) {
+          i['GoogleAnalyticsObject'] = r;i[r] = i[r] || function () {
 
-.prm-secondary-bg, md-progress-linear[md-mode=indeterminate].header-progress-bar .md-bar {
-  background-color: #512888; }
-  .prm-secondary-bg.prm-hue1, .new-result-item .list-item-count, md-progress-linear[md-mode=indeterminate].header-progress-bar .prm-hue1.md-bar, md-tabs md-ink-bar, md-input-container:after, md-radio-button.md-checked .md-on, md-radio-button.md-checked ._md-on {
-    background-color: #000001; }
-  .prm-secondary-bg.prm-hue2, md-progress-linear[md-mode=indeterminate].header-progress-bar .prm-hue2.md-bar, md-checkbox.md-checked .md-icon,
-  md-checkbox.md-checked ._md-icon {
-    background-color: #100819; }
+            (i[r].q = i[r].q || []).push(arguments);
+          }, i[r].l = 1 * new Date();a = s.createElement(o), m = s.getElementsByTagName(o)[0];a.async = 1;a.src = g;m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-.prm-secondary-border {
-  border-color: #512888; }
-  .prm-secondary-border.prm-hue1, md-select:focus .md-select-value, .md-input-container-dummy > .md-select-dummy:focus .md-select-value,
-  .md-input-focused md-select .md-select-value,
-  .md-input-focused .md-input-container-dummy > .md-select-dummy .md-select-value,
-  md-select:not([disabled]):focus .md-select-value,
-  .md-input-focused
-  md-select:not([disabled]) .md-select-value, md-radio-button.md-checked .md-off, md-radio-button.md-checked ._md-off {
-    border-color: #000001; }
+        ga('create', analyticsOptions.siteId, { 'alwaysSendReferrer': true });
 
-.prm-background, html, body, prm-search-bar .simple-search-wrapper .search-options:after, prm-journals-search-bar .simple-search-wrapper .search-options:after, prm-search-bar .simple-search-wrapper .search-options md-divider, prm-journals-search-bar .simple-search-wrapper .search-options md-divider, .prm-view-overlay-inner, .__xs prm-facet,
-.__sm prm-facet, .__sm .sidebar,
-.__xs .sidebar, prm-full-view-cont prm-recomendation-item .media-on-hover .pin-button, prm-full-view-cont .recommendations-title:after, prm-full-view-cont .recommendations-title prm-icon, md-virtual-repeat-container#prm-simple-search .md-autocomplete-suggestions md-divider, md-dialog md-toolbar:not(.md-menu-toolbar), md-card .card-content-block {
-  background-color: #e9e9e9;
-  border-color: #e1e1e1; }
-  .prm-background.prm-hue1, html.prm-hue1, body.prm-hue1, .prm-horizontal-content .horizontal-content-control, .prm-horizontal-content .horizontal-content-control:hover, prm-search-bar .simple-search-wrapper .prm-hue1.search-options:after, prm-journals-search-bar .simple-search-wrapper .prm-hue1.search-options:after, prm-search-bar .simple-search-wrapper .search-options md-divider.prm-hue1, prm-journals-search-bar .simple-search-wrapper .search-options md-divider.prm-hue1, .prm-hue1.prm-view-overlay-inner, .full-view-inner-container + .full-view-aside:before, .__xs prm-facet.prm-hue1,
-  .__sm prm-facet.prm-hue1, .__sm .prm-hue1.sidebar,
-  .__xs .prm-hue1.sidebar, prm-full-view-cont prm-recomendation-item .media-on-hover .prm-hue1.pin-button, prm-full-view-cont .prm-hue1.recommendations-title:after, prm-full-view-cont .recommendations-title prm-icon.prm-hue1, md-virtual-repeat-container#prm-simple-search .md-autocomplete-suggestions md-divider.prm-hue1, md-dialog md-toolbar.prm-hue1:not(.md-menu-toolbar), .default-tabs[md-border-bottom] > md-tabs-wrapper, md-card .prm-hue1.card-content-block, md-card .card-divider, md-toolbar.default-toolbar,
-  md-toolbar.md-primoExplore-theme.default-toolbar,
-  md-toolbar.default-toolbar:not(.md-menu-toolbar) {
-    background-color: #f7f7f7;
-    border-color: #d5d5d5;
-    background-color: gainsboro; }
-  .prm-background.prm-hue2, html.prm-hue2, body.prm-hue2, .line-clamp-1:after, .line-clamp-2:after, .line-clamp-3:after, .line-clamp-4:after, .line-clamp-5:after, .prm-horizontal-content .horizontal-content-item md-card > .md-button, prm-search-result-list .results-header,
-  prm-search-result-list .results-footer, .list-item-wrapper, prm-search-bar .simple-search-wrapper .prm-hue2.search-options:after, prm-journals-search-bar .simple-search-wrapper .prm-hue2.search-options:after, prm-search-bar .simple-search-wrapper .search-options md-divider.prm-hue2, prm-journals-search-bar .simple-search-wrapper .search-options md-divider.prm-hue2, prm-search-bar .advanced-search-tabs, prm-journals-search-bar .advanced-search-tabs, prm-search-bar .advanced-search-output md-card, prm-journals-search-bar .advanced-search-output md-card, .prm-hue2.prm-view-overlay-inner, .prm-full-view-dialog, .full-view-inner-container, .__xs prm-facet.prm-hue2,
-  .__sm prm-facet.prm-hue2, .__sm .prm-hue2.sidebar,
-  .__xs .prm-hue2.sidebar, .__xs prm-full-view-cont .recommendations-wrapper,
-  .__sm prm-full-view-cont .recommendations-wrapper, prm-recomendation-item .media-on-hover .pin-button, prm-recomendation-item .media-on-hover .pin-button:hover, prm-full-view-cont prm-recomendation-item .media-on-hover .prm-hue2.pin-button, .recommendations-title:after, prm-full-view-cont .prm-hue2.recommendations-title:after, .__xs prm-full-view-cont .recommendations-title:after,
-  .__sm prm-full-view-cont .recommendations-title:after, .recommendations-title prm-icon, prm-full-view-cont .recommendations-title prm-icon.prm-hue2, .__xs prm-full-view-cont .recommendations-title prm-icon,
-  .__sm prm-full-view-cont .recommendations-title prm-icon, md-virtual-repeat-container#prm-simple-search .md-autocomplete-suggestions md-divider.prm-hue2, md-dialog md-toolbar.prm-hue2:not(.md-menu-toolbar), md-grid-tile,
-  .tiles-grid-tile, md-grid-tile md-list prm-spinner.overlay-cover:after,
-  md-grid-tile .tile-content prm-spinner.overlay-cover:after,
-  .tiles-grid-tile md-list prm-spinner.overlay-cover:after,
-  .tiles-grid-tile .tile-content prm-spinner.overlay-cover:after, md-card.default-card, md-card .prm-hue2.card-content-block {
-    background-color: #f3f3f3; }
-  .prm-background.prm-hue3, html.prm-hue3, body.prm-hue3, prm-search-bar .simple-search-wrapper .prm-hue3.search-options:after, prm-journals-search-bar .simple-search-wrapper .prm-hue3.search-options:after, prm-search-bar .simple-search-wrapper .search-options md-divider.prm-hue3, prm-journals-search-bar .simple-search-wrapper .search-options md-divider.prm-hue3, .prm-hue3.prm-view-overlay-inner, .__xs prm-facet.prm-hue3,
-  .__sm prm-facet.prm-hue3, .__sm .prm-hue3.sidebar,
-  .__xs .prm-hue3.sidebar, prm-full-view-cont prm-recomendation-item .media-on-hover .prm-hue3.pin-button, prm-full-view-cont .prm-hue3.recommendations-title:after, prm-full-view-cont .recommendations-title prm-icon.prm-hue3, md-virtual-repeat-container#prm-simple-search .md-autocomplete-suggestions md-divider.prm-hue3, md-dialog md-toolbar.prm-hue3:not(.md-menu-toolbar), md-card .prm-hue3.card-content-block {
-    background-color: white; }
-  .prm-background.prm-hue4, html.prm-hue4, body.prm-hue4, prm-search-bar .simple-search-wrapper .prm-hue4.search-options:after, prm-journals-search-bar .simple-search-wrapper .prm-hue4.search-options:after, prm-search-bar .simple-search-wrapper .search-options md-divider.prm-hue4, prm-journals-search-bar .simple-search-wrapper .search-options md-divider.prm-hue4, .prm-hue4.prm-view-overlay-inner, .__xs prm-facet.prm-hue4,
-  .__sm prm-facet.prm-hue4, .__sm .prm-hue4.sidebar,
-  .__xs .prm-hue4.sidebar, prm-full-view-cont prm-recomendation-item .media-on-hover .prm-hue4.pin-button, prm-full-view-cont .prm-hue4.recommendations-title:after, prm-full-view-cont .recommendations-title prm-icon.prm-hue4, md-virtual-repeat-container#prm-simple-search .md-autocomplete-suggestions md-divider.prm-hue4, md-dialog md-toolbar.prm-hue4:not(.md-menu-toolbar), md-card .prm-hue4.card-content-block {
-    background-color: #f1f1f1; }
-  .prm-background.prm-hue5, html.prm-hue5, body.prm-hue5, .login-dialog .loader-wrapper, prm-search-bar .simple-search-wrapper .prm-hue5.search-options:after, prm-journals-search-bar .simple-search-wrapper .prm-hue5.search-options:after, prm-search-bar .simple-search-wrapper .search-options md-divider.prm-hue5, prm-journals-search-bar .simple-search-wrapper .search-options md-divider.prm-hue5, .prm-hue5.prm-view-overlay-inner, .__xs prm-facet.prm-hue5,
-  .__sm prm-facet.prm-hue5, .__sm .prm-hue5.sidebar,
-  .__xs .prm-hue5.sidebar, prm-full-view-cont prm-recomendation-item .media-on-hover .prm-hue5.pin-button, prm-full-view-cont .prm-hue5.recommendations-title:after, prm-full-view-cont .recommendations-title prm-icon.prm-hue5, md-virtual-repeat-container#prm-simple-search .md-autocomplete-suggestions md-divider.prm-hue5, md-dialog md-toolbar.prm-hue5:not(.md-menu-toolbar), md-card .prm-hue5.card-content-block {
-    background-color: rgba(233, 233, 233, 0.5); }
-  .prm-background.prm-hue6, html.prm-hue6, body.prm-hue6, .bar.filter-bar, prm-search-bar .simple-search-wrapper .prm-hue6.search-options:after, prm-journals-search-bar .simple-search-wrapper .prm-hue6.search-options:after, prm-search-bar .simple-search-wrapper .search-options md-divider.prm-hue6, prm-journals-search-bar .simple-search-wrapper .search-options md-divider.prm-hue6, .prm-hue6.prm-view-overlay-inner, .__xs prm-facet.prm-hue6,
-  .__sm prm-facet.prm-hue6, .__sm .prm-hue6.sidebar,
-  .__xs .prm-hue6.sidebar, prm-full-view-cont prm-recomendation-item .media-on-hover .prm-hue6.pin-button, prm-full-view-cont .prm-hue6.recommendations-title:after, prm-full-view-cont .recommendations-title prm-icon.prm-hue6, md-virtual-repeat-container#prm-simple-search .md-autocomplete-suggestions md-divider.prm-hue6, md-dialog md-toolbar.prm-hue6:not(.md-menu-toolbar), md-card .prm-hue6.card-content-block {
-    background-color: #e6e6e6; }
-  .prm-background.prm-hue7, html.prm-hue7, body.prm-hue7, .links-block .separated-block-item:after, prm-search-bar .simple-search-wrapper .prm-hue7.search-options:after, prm-journals-search-bar .simple-search-wrapper .prm-hue7.search-options:after, prm-search-bar .simple-search-wrapper .search-options md-divider.prm-hue7, prm-journals-search-bar .simple-search-wrapper .search-options md-divider.prm-hue7, .prm-hue7.prm-view-overlay-inner, .__xs prm-facet.prm-hue7,
-  .__sm prm-facet.prm-hue7, .__sm .prm-hue7.sidebar,
-  .__xs .prm-hue7.sidebar, prm-full-view-cont prm-recomendation-item .media-on-hover .prm-hue7.pin-button, prm-full-view-cont .prm-hue7.recommendations-title:after, prm-full-view-cont .recommendations-title prm-icon.prm-hue7, md-virtual-repeat-container#prm-simple-search .md-autocomplete-suggestions md-divider.prm-hue7, md-dialog md-toolbar.prm-hue7:not(.md-menu-toolbar), md-card .prm-hue7.card-content-block {
-    background-color: #cfcfcf; }
-  .prm-background.prm-hue8, html.prm-hue8, body.prm-hue8, .service-form-static-panel, prm-search-bar .simple-search-wrapper .prm-hue8.search-options:after, prm-journals-search-bar .simple-search-wrapper .prm-hue8.search-options:after, prm-search-bar .simple-search-wrapper .search-options md-divider.prm-hue8, prm-journals-search-bar .simple-search-wrapper .search-options md-divider.prm-hue8, .prm-hue8.prm-view-overlay-inner, .__xs prm-facet.prm-hue8,
-  .__sm prm-facet.prm-hue8, .__sm .prm-hue8.sidebar,
-  .__xs .prm-hue8.sidebar, prm-full-view-cont prm-recomendation-item .media-on-hover .prm-hue8.pin-button, prm-full-view-cont .prm-hue8.recommendations-title:after, prm-full-view-cont .recommendations-title prm-icon.prm-hue8, md-virtual-repeat-container#prm-simple-search .md-autocomplete-suggestions md-divider.prm-hue8, md-dialog md-toolbar.prm-hue8:not(.md-menu-toolbar), md-card .prm-hue8.card-content-block {
-    background-color: #f8f8f8; }
-  .prm-background.prm-hue9, html.prm-hue9, body.prm-hue9, prm-search-bar .simple-search-wrapper .prm-hue9.search-options:after, prm-journals-search-bar .simple-search-wrapper .prm-hue9.search-options:after, prm-search-bar .simple-search-wrapper .search-options md-divider.prm-hue9, prm-journals-search-bar .simple-search-wrapper .search-options md-divider.prm-hue9, .prm-hue9.prm-view-overlay-inner, .__xs prm-facet.prm-hue9,
-  .__sm prm-facet.prm-hue9, .__sm .prm-hue9.sidebar,
-  .__xs .prm-hue9.sidebar, prm-full-view-cont prm-recomendation-item .media-on-hover .prm-hue9.pin-button, prm-full-view-cont .prm-hue9.recommendations-title:after, prm-full-view-cont .recommendations-title prm-icon.prm-hue9, md-virtual-repeat-container#prm-simple-search .md-autocomplete-suggestions md-divider.prm-hue9, md-dialog md-toolbar.prm-hue9:not(.md-menu-toolbar), md-tabs md-tabs-wrapper md-tabs-canvas md-pagination-wrapper md-tab-item.md-focused:not([disabled]), md-card .prm-hue9.card-content-block {
-    background-color: gainsboro; }
-  .prm-background.prm-hue10, html.prm-hue10, body.prm-hue10, prm-search-bar .simple-search-wrapper .prm-hue10.search-options:after, prm-journals-search-bar .simple-search-wrapper .prm-hue10.search-options:after, prm-search-bar .simple-search-wrapper .search-options md-divider.prm-hue10, prm-journals-search-bar .simple-search-wrapper .search-options md-divider.prm-hue10, .prm-hue10.prm-view-overlay-inner, .__xs prm-facet.prm-hue10,
-  .__sm prm-facet.prm-hue10, .__sm .prm-hue10.sidebar,
-  .__xs .prm-hue10.sidebar, prm-full-view-cont prm-recomendation-item .media-on-hover .prm-hue10.pin-button, prm-full-view-cont .prm-hue10.recommendations-title:after, prm-full-view-cont .recommendations-title prm-icon.prm-hue10, md-virtual-repeat-container#prm-simple-search .md-autocomplete-suggestions md-divider.prm-hue10, md-dialog md-toolbar.prm-hue10:not(.md-menu-toolbar), md-card .prm-hue10.card-content-block, md-toolbar .toolbar-divider,
-  md-toolbar.md-primoExplore-theme .toolbar-divider,
-  md-toolbar:not(.md-menu-toolbar) .toolbar-divider {
-    background-color: #cacaca; }
-  .prm-background.prm-hue11, html.prm-hue11, body.prm-hue11, prm-search-bar .simple-search-wrapper .prm-hue11.search-options:after, prm-journals-search-bar .simple-search-wrapper .prm-hue11.search-options:after, prm-search-bar .simple-search-wrapper .search-options md-divider.prm-hue11, prm-journals-search-bar .simple-search-wrapper .search-options md-divider.prm-hue11, .prm-hue11.prm-view-overlay-inner, .__xs prm-facet.prm-hue11,
-  .__sm prm-facet.prm-hue11, .__sm .prm-hue11.sidebar,
-  .__xs .prm-hue11.sidebar, prm-full-view-cont prm-recomendation-item .media-on-hover .prm-hue11.pin-button, prm-full-view-cont .prm-hue11.recommendations-title:after, prm-full-view-cont .recommendations-title prm-icon.prm-hue11, md-virtual-repeat-container#prm-simple-search .md-autocomplete-suggestions md-divider.prm-hue11, md-dialog md-toolbar.prm-hue11:not(.md-menu-toolbar), md-card .prm-hue11.card-content-block, md-toolbar.citations-toolbar .toolbar-section,
-  md-toolbar.md-primoExplore-theme.citations-toolbar .toolbar-section,
-  md-toolbar:not(.md-menu-toolbar).citations-toolbar .toolbar-section {
-    background-color: #e4e4e4; }
-  .prm-background.prm-hue13, html.prm-hue13, body.prm-hue13, prm-search-bar .simple-search-wrapper .prm-hue13.search-options:after, prm-journals-search-bar .simple-search-wrapper .prm-hue13.search-options:after, prm-search-bar .simple-search-wrapper .search-options md-divider.prm-hue13, prm-journals-search-bar .simple-search-wrapper .search-options md-divider.prm-hue13, .prm-hue13.prm-view-overlay-inner, .__xs prm-facet.prm-hue13,
-  .__sm prm-facet.prm-hue13, .__sm .prm-hue13.sidebar,
-  .__xs .prm-hue13.sidebar, prm-full-view-cont prm-recomendation-item .media-on-hover .prm-hue13.pin-button, prm-full-view-cont .prm-hue13.recommendations-title:after, prm-full-view-cont .recommendations-title prm-icon.prm-hue13, md-virtual-repeat-container#prm-simple-search .md-autocomplete-suggestions md-divider.prm-hue13, md-dialog md-toolbar.prm-hue13:not(.md-menu-toolbar), md-card .prm-hue13.card-content-block {
-    background-color: #eeeeee; }
-  .prm-background-color, md-grid-tile .message-with-icon md-icon,
-  .tiles-grid-tile .message-with-icon md-icon {
-    color: #e9e9e9; }
-    .prm-background-color.prm-hue4, .service-form-static-panel, md-grid-tile .message-with-icon md-icon.prm-hue4,
-    .tiles-grid-tile .message-with-icon md-icon.prm-hue4 {
-      color: #f1f1f1; }
-  .prm-background-border, prm-search-result-list .results-header, .list-item-wrapper, .action-list-content md-divider, prm-search-bar .advanced-search-tabs, prm-journals-search-bar .advanced-search-tabs, prm-search-bar .advanced-search-output md-card, prm-journals-search-bar .advanced-search-output md-card, md-grid-tile md-list md-list-item,
-  md-grid-tile .tile-content md-list-item,
-  .tiles-grid-tile md-list md-list-item,
-  .tiles-grid-tile .tile-content md-list-item, md-grid-tile md-list md-divider,
-  md-grid-tile .tile-content md-divider,
-  .tiles-grid-tile md-list md-divider,
-  .tiles-grid-tile .tile-content md-divider {
-    border-color: #e9e9e9;
-    border-color: #e1e1e1 !important; }
-    .prm-background-border.prm-hue1, prm-search-result-list .prm-hue1.results-header, .prm-hue1.list-item-wrapper, .action-list-content md-divider.prm-hue1, prm-search-bar .prm-hue1.advanced-search-tabs, prm-journals-search-bar .prm-hue1.advanced-search-tabs, prm-search-bar .advanced-search-output md-card.prm-hue1, prm-journals-search-bar .advanced-search-output md-card.prm-hue1, md-grid-tile md-list md-list-item.prm-hue1,
-    md-grid-tile .tile-content md-list-item.prm-hue1,
-    .tiles-grid-tile md-list md-list-item.prm-hue1,
-    .tiles-grid-tile .tile-content md-list-item.prm-hue1, md-grid-tile md-list md-divider.prm-hue1,
-    md-grid-tile .tile-content md-divider.prm-hue1,
-    .tiles-grid-tile md-list md-divider.prm-hue1,
-    .tiles-grid-tile .tile-content md-divider.prm-hue1 {
-      border-color: #f0f0f0;
-      border-color: #d5d5d5 !important; }
-    .prm-background-border.prm-hue2, prm-search-result-list .prm-hue2.results-header, .prm-hue2.list-item-wrapper, .action-list-content md-divider.prm-hue2, prm-search-bar .prm-hue2.advanced-search-tabs, prm-journals-search-bar .prm-hue2.advanced-search-tabs, prm-search-bar .advanced-search-output md-card.prm-hue2, prm-journals-search-bar .advanced-search-output md-card.prm-hue2, md-grid-tile md-list md-list-item.prm-hue2,
-    md-grid-tile .tile-content md-list-item.prm-hue2,
-    .tiles-grid-tile md-list md-list-item.prm-hue2,
-    .tiles-grid-tile .tile-content md-list-item.prm-hue2, md-grid-tile md-list md-divider.prm-hue2,
-    md-grid-tile .tile-content md-divider.prm-hue2,
-    .tiles-grid-tile md-list md-divider.prm-hue2,
-    .tiles-grid-tile .tile-content md-divider.prm-hue2 {
-      border-color: #ececec !important; }
-    .prm-background-border.prm-hue3, .bar.filter-bar, prm-search-result-list .prm-hue3.results-header, .prm-hue3.list-item-wrapper, .action-list-content md-divider.prm-hue3, prm-search-bar .prm-hue3.advanced-search-tabs, prm-journals-search-bar .prm-hue3.advanced-search-tabs, prm-search-bar .advanced-search-output md-card.prm-hue3, prm-journals-search-bar .advanced-search-output md-card.prm-hue3, md-grid-tile md-list md-list-item.prm-hue3,
-    md-grid-tile .tile-content md-list-item.prm-hue3,
-    .tiles-grid-tile md-list md-list-item.prm-hue3,
-    .tiles-grid-tile .tile-content md-list-item.prm-hue3, md-grid-tile md-list md-divider.prm-hue3,
-    md-grid-tile .tile-content md-divider.prm-hue3,
-    .tiles-grid-tile md-list md-divider.prm-hue3,
-    .tiles-grid-tile .tile-content md-divider.prm-hue3 {
-      border-color: #e1e1e1; }
-    .prm-background-border.prm-hue4, prm-search-result-list .prm-hue4.results-header, .prm-hue4.list-item-wrapper, .action-list-content md-divider.prm-hue4, prm-search-bar .prm-hue4.advanced-search-tabs, prm-journals-search-bar .prm-hue4.advanced-search-tabs, prm-search-bar .advanced-search-output md-card.prm-hue4, prm-journals-search-bar .advanced-search-output md-card.prm-hue4, md-grid-tile md-list md-list-item.prm-hue4,
-    md-grid-tile .tile-content md-list-item.prm-hue4,
-    .tiles-grid-tile md-list md-list-item.prm-hue4,
-    .tiles-grid-tile .tile-content md-list-item.prm-hue4, md-grid-tile md-list md-divider.prm-hue4,
-    md-grid-tile .tile-content md-divider.prm-hue4,
-    .tiles-grid-tile md-list md-divider.prm-hue4,
-    .tiles-grid-tile .tile-content md-divider.prm-hue4, md-toolbar.citations-toolbar .toolbar-section,
-    md-toolbar.md-primoExplore-theme.citations-toolbar .toolbar-section,
-    md-toolbar:not(.md-menu-toolbar).citations-toolbar .toolbar-section {
-      border-color: #d7d7d7; }
+        ga('set', 'anonymizeIp', true);
+      }
+    }
 
-/* makde sign for item in place bolder*/
-  md-list-item.md-2-line .md-list-item-text h3, md-list-item.md-2-line>.md-no-style .md-list-item-text h3, md-list-item.md-3-line .md-list-item-text h3, md-list-item.md-3-line>.md-no-style .md-list-item-text h3, md-list-item.md-2-line .md-list-item-text h4, md-list-item.md-2-line>.md-no-style .md-list-item-text h4, md-list-item.md-3-line .md-list-item-text h4, md-list-item.md-3-line>.md-no-style .md-list-item-text h4 {
-    font-size: 15px;
-    letter-spacing: .01em;
-    margin: 3px 0 1px;
-    font-weight: 900;
-    line-height: 1.2em;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
+    $rootScope.$on('$locationChangeSuccess', function (event, toState, fromState) {
 
+      if (analyticsOptions.hasOwnProperty("defaultTitle")) {
 
-  .prm-links.prm-alt-link, .md-button.arrow-link-button .prm-alt-link[link-arrow], a.prm-alt-link, .md-button.arrow-link-button .prm-alt-link.button-content, .login-dialog md-list md-list-item .md-list-item-text h3.prm-alt-link,
-  .login-dialog md-list md-list-item .md-list-item-text .prm-alt-link.list-item-title,
-  .login-dialog .md-list md-list-item .md-list-item-text h3.prm-alt-link,
-  .login-dialog .md-list md-list-item .md-list-item-text .prm-alt-link.list-item-title,
-  .login-dialog .md-list[class$="-line"] md-list-item > .md-no-style .md-list-item-text h3.prm-alt-link,
-  .login-dialog .md-list[class$="-line"] md-list-item > .md-no-style .md-list-item-text .prm-alt-link.list-item-title, .login-dialog .collapsable-container md-list md-list-item .prm-alt-link.md-list-item-inner, md-tabs.tabs-as-links md-tab-item.prm-alt-link, md-tabs.tabs-as-app .prm-alt-link.back-button, md-grid-tile .tile-header .header-link .prm-alt-link.arrow-icon,
-  .tiles-grid-tile .tile-header .header-link .prm-alt-link.arrow-icon, md-grid-tile .tile-header .prm-alt-link.header-link:hover,
-  .tiles-grid-tile .tile-header .prm-alt-link.header-link:hover, md-grid-tile .tile-header .prm-alt-link.md-button,
-  .tiles-grid-tile .tile-header .prm-alt-link.md-button, md-input-container.has-fixed-message [ng-message] a.prm-alt-link, .separate-list-items md-list-item .item-loader-with-text .prm-alt-link.md-button, md-list-item.prm-alt-link.list-item-as-link {
-    color: #000001; }
-    
-      .prm-links-bg:hover:not([disabled]), .prm-links-bg:focus:not([disabled]), .prm-links-bg.hovered:not([disabled]), .prm-links-bg.md-focused:not([disabled]), .prm-links-bg._md-focused:not([disabled]) {
-      color: #265f8d;
-      background-color: rgba(92, 146, 189, 0.1); }
-    .prm-links-bg.prm-hue-1 {
-      background-color: rgba(26, 153, 255, 0.1); }
-  .prm-links-background.prm-hue-1, a:hover, .md-button.arrow-link-button .button-content:hover, .recommendations-title:hover > span > span, .recommendations-title.hover > span > span, a:focus, .md-button.arrow-link-button .button-content:focus, a.hover, .md-button.arrow-link-button .hover.button-content, .md-button.arrow-link-button:hover .button-content, .md-button.arrow-link-button:focus .button-content, prm-citation-trails-item.active-item md-card > .md-button:hover .item-title span, prm-citation-trails-item.active-item md-card > .md-button:focus .item-title span {
-    background-color: rgba(0, 115, 150, 0.1); }
-  .prm-links-background.prm-hue-2 {
-    background-color: rgba(92, 146, 189, 0); }
- 
-  .prm-links-hover.prm-hue-2 {
-    color: rgba(34, 96, 145, 0.5); }
-  .prm-links-hover.prm-hue-3 {
-    color: rgba(92, 146, 189, 0); }
+        var documentTitle = analyticsOptions.defaultTitle;
 
+        var interval = $interval(function () {
 
-  
+          if (document.title !== '') documentTitle = document.title;
 
-.prm-warn, md-input-container.md-required:before, md-input-container.md-input-invalid:before, .required-starlet, prm-breadcrumbs .md-chip-remove-container button:hover md-icon, prm-breadcrumbs .md-chip-remove-container button:focus md-icon, md-input-container.md-input-invalid, .md-chips .md-chip.toggleable-chip .md-chip-remove-container prm-icon.close-button {
-  color: #E1523D; }
-  .prm-warn-bg, md-input-container.md-input-invalid:after {
-    background-color: #E1523D; }
+          if (window.location.pathname.indexOf('openurl') !== -1 || window.location.pathname.indexOf('fulldisplay') !== -1) if (angular.element(document.querySelector('prm-full-view-service-container .item-title>a')).length === 0) return;else documentTitle = angular.element(document.querySelector('prm-full-view-service-container .item-title>a')).text();
 
-.prm-alert, .bar.alert-bar, .classic-input .search-scope {
-  color: black; }
-  .prm-alert-bg, .bar.alert-bar, .classic-input .search-scope {
-    background-color: #bbbbbb; }
-  .prm-alert-border, .bar.alert-bar, .classic-input .search-scope {
-    border-color: #bbbbbb; }
+          if (typeof ga !== 'undefined') {
 
-.prm-highlight {
-  background-color: #FFFCC4; }
-  .prm-highlight.prm-hue1, .list-item-wrapper .item-bookmarked,
-  .list-item-wrapper .item-bookmarked:hover {
-    background-color: #FFFCC4; }
+            if (fromState != toState) ga('set', 'referrer', fromState);
 
+            ga('set', 'location', toState);
 
-.prm-negative, .status-unavailable, [class*="unavailable"] > span:first-of-type,
-[class*="no_"] > span:first-of-type,
-.restricted > span:first-of-type,
-.duedate > span:first-of-type {
-  color: gray; }
+            ga('set', 'title', documentTitle);
 
-.prm-citation-color, prm-citation-trails-item .item-type {
-  color: #E1523D; }
-  .prm-citation-color.citation-hover, prm-citation-trails-item .citation-hover.item-type, prm-citation-trails-indication .md-button.md-icon-button:hover, prm-citation-trails-indication .md-button.button-with-icon:hover {
-    color: #7a1300; }
+            ga('send', 'pageview');
+          }
 
-
-prm-spinner.half-transparent .diamond {
-    background-color: #b9a9cf;
-}
-
-prm-spinner.dark-on-light .diamond {
-    background-color: #b9a9cf;
-}
-
-prm-spinner .loader-text {
-    color: #b9a9cf;
-}
-
-
-.available-facets .section-content .md-chips .md-chip .button-exclude {
-    color: #E1523D;
-}
-
-.available-facets .section-content .md-chips .md-chip .button-exclude._md-focused:not([disabled]), .available-facets .section-content .md-chips .md-chip .button-exclude.hovered:not([disabled]), .available-facets .section-content .md-chips .md-chip .button-exclude.md-focused:not([disabled]), .available-facets .section-content .md-chips .md-chip .button-exclude:focus:not([disabled]), .available-facets .section-content .md-chips .md-chip .button-exclude:hover:not([disabled]) {
-    background-color: rgba(225, 82, 61, 0.1);
-    color: #E1523D;
-}
-
-.prm-primary-bg, prm-browse-search-bar, prm-journals-search-bar, prm-search-bar, prm-spinner.overlay-cover.light-on-dark::after, prm-tags-search-bar {
-    background-color: #73529f;
-}
-
-.md-dialog-container.fixed-container {
-    height: 100%!important;
-    position: fixed!important;
-    top: 0!important;
-    background-color: #73529f;
-}
-
-
-/* primary color hook end*/
-
-
-/* General */
-
-h2 {
-    font-weight: 400;
-}
-
-
-/* Main Menu Links */
-
-prm-main-menu[menu-type="menu"] .md-button {
-    color: #bbbbbb;
-}
-
-/* My Account */
-
-md-list-item.account-tile {
-    flex: 1 1 auto;
-    padding: 10px 16px;
-}
-
-/* Custom no results display 
-
-prm-no-search-result > md-card {
-    display:none;
-}
- */
-
-/* if we want to change the color of sign in
-
-prm-user-area .user-menu-button .user-name {
-    color: #;
-}
-*/
-
-/* Advanced Search, browse, tags header */
-
-prm-browse-search-bar .advanced-search-backdrop, prm-journals-search-bar .advanced-search-backdrop, prm-search-bar .advanced-search-backdrop, prm-tags-search-bar .advanced-search-backdrop {
-    background-color: #512888;
-}
-
-prm-search-bar .search-switch-buttons .md-button.switch-to-simple {
-    color: #fff;
-}
-
-/* Success Bar */
-.bar.success-bar {
-    background-color: #e0DCe2;
-    border-color: #512888;
-    color: #133213;
-}
-
-.bar {
-      border: 2px solid;
-}
-
-
-.prm-primary-bg, prm-atoz-search-bar, prm-browse-search-bar, prm-collection-gallery-header .collection-header-inner, prm-newspapers-search-bar, prm-search-bar, prm-spinner.overlay-cover.light-on-dark:after, prm-tags-search-bar  {
-       background-color: #73529F;
-}
-.bar prm-authentication .md-button, .md-button.button-as-link {
-    font-size: 1.3em;
-
-}
-
-/* code to delete the left tabs for brief results */
-
-prm-full-view .services-index-under #services-index {
-    display: none;
-}
-
-/* code to add COVID alert to top of page */
-
-.alert-bar{
-	background-color: #ffffae;
-	text-align:center;
-}
-/*added to remove Special Collections Library as a pickup Location--red 04/2021*/
-md-option[value="12230460490002401$$LIBRARY"] {
-    display: none;
+          $interval.cancel(interval);
+        }, 0);
+      }
+    });
   }
+});
+
+angular.module('googleAnalytics').value('analyticsOptions', {
+
+  enabled: true,
+
+  siteId: 'UA-40575926-3',
+
+  defaultTitle: 'Search It'
+
+});
+  
+    //Auto activates the filter for items in full display
+    //written on 2/4/20 by Joe Ferguson from the University of Tennessee, Knoxville
+    app.component('prmLocationItemsAfterAppStoreGenerated', {
+      bindings: { parentCtrl: '<' },
+      controller: function($scope) {
+        this.$onInit = function(){
+          {
+            var myVar = setInterval(activateFilter, 1000);
+            function activateFilter() {
+              if ($("span:contains('Filters')").length) {
+                clearInterval(myVar);
+                return;
+              }
+              if ($("[id^='filter']").length) {
+                $("[id^='filter']").parent().click();
+              }
+            }
+          }
+        };
+      }
+    });
+  
+    //Add External Search from WSU -- revised JMcWilliams 20180619
+    //Modified 10/2022 to function within AngularJS 1.8 migration 
+    angular
+    .module('externalSearch', []).value('searchTargets', []).component('prmFacetAfterAppStoreGenerated', {
+      bindings: { parentCtrl: '<' },
+      //controller: ['externalSearchService', function (externalSearchService) {
+      controller: ['externalSearchService', '$scope', function (externalSearchService, $scope) {
+        this.$onInit = function () {
+        externalSearchService.setController(this.parentCtrl);
+        externalSearchService.addExtSearch();
+        $scope.$watch('$ctrl.parentCtrl.facets', function(){
+          externalSearch.addExtSearch()});
+        }
+      }]
+    }).component('prmPageNavMenuAfterAppStoreGenerated', {
+      controller: ['externalSearchService', function (externalSearchService) {
+        this.$onInit = function () {
+        if (externalSearchService.getController()) externalSearchService.addExtSearch();
+        }
+      }]
+    }).component('prmFacetExactAfterAppStoreGenerated', {
+      bindings: { parentCtrl: '<' },
+      template: '\n      <div ng-if="name === \'External Search\'">\n          <div ng-hide="$ctrl.parentCtrl.facetGroup.facetGroupCollapsed">\n              <div class="section-content animate-max-height-variable">\n                  <div class="md-chips md-chips-wrap">\n                      <div ng-repeat="target in targets" aria-live="polite" class="md-chip animate-opacity-and-scale facet-element-marker-local4">\n                          <div class="md-chip-content layout-row" role="button" tabindex="0">\n                              <strong dir="auto" title="{{ target.name }}">\n                                  <a ng-href="{{ target.url + target.mapping(queries, filters) }}" target="_blank">\n                                      <img ng-src="{{ target.img }}" width="22" height="22" alt="{{ target.alt }}" style="vertical-align:middle;"> {{ target.name }}\n                                  </a>\n                              </strong>\n                          </div>\n                      </div>\n                  </div>\n              </div>\n          </div>\n      </div>',
+      controller: ['$scope', '$location', 'searchTargets', function ($scope, $location, searchTargets) {
+        this.$onInit = function () {
+        $scope.name = this.parentCtrl.facetGroup.name;
+        $scope.targets = searchTargets;
+        var query = $location.search().query;
+        var filter = $location.search().pfilter;
+        //$scope.queries = Array.isArray(query) ? query : query ? [query] : false;
+        //$scope.filters = Array.isArray(filter) ? filter : filter ? [filter] : false;
+        $scope.queries = Object.prototype.toString.call(query) === '[object Array]' ? query : query ? [query] : false
+        $scope.filters = Object.prototype.toString.call(filter) === '[object Array]' ? filter : filter ? [filter] : false
+        }
+      }]
+    }).factory('externalSearchService', function () {
+      return {
+        getController: function () {
+          return this.prmFacetCtrl || false;
+        },
+        setController: function (controller) {
+          this.prmFacetCtrl = controller;
+        },
+        addExtSearch: function addExtSearch() {
+          var xx=this;
+          var checkExist = setInterval(function () {
+  
+            if (xx.prmFacetCtrl.facetService.results[0] && xx.prmFacetCtrl.facetService.results[0].name !="External Search") {
+              if (xx.prmFacetCtrl.facetService.results.name !== 'External Search') {
+                xx.prmFacetCtrl.facetService.results.unshift({
+                  name: 'External Search',
+                  displayedType: 'exact',
+                  limitCount: 0,
+                  facetGroupCollapsed: false,
+                  values: undefined
+                });
+              }
+              clearInterval(checkExist);
+            }
+          }, 100);
+        }
+      };
+    });
+    app.value('searchTargets', [{
+      "name": "Worldcat",
+      "url": "https://kansasstateuniversity.on.worldcat.org/search?",
+      "img": "https://k-state-primosb.hosted.exlibrisgroup.com/primo-explore/custom/NewUI/img/worldcat-logo.png",
+      "alt": "Worldcat Logo",
+      mapping: function mapping(queries, filters) {
+        var query_mappings = {
+          'any': 'kw',
+          'title': 'ti',
+          'creator': 'au',
+          'subject': 'su',
+          'isbn': 'bn',
+          'issn': 'n2'
+        };
+        try {
+          return 'queryString=' + queries.map(function (part) {
+            var terms = part.split(',');
+            var type = query_mappings[terms[0]] || 'kw';
+            var string = terms[2] || '';
+            var join = terms[3] || '';
+            return type + ':' + string + ' ' + join + ' ';
+          }).join('');
+        } catch (e) {
+          return '';
+        }
+      }
+    }, {
+      "name": "Google Scholar",
+      "url": "https://scholar.google.com/scholar?inst=6485013114777526331&q=",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/200px-Google_%22G%22_Logo.svg.png",
+      "alt": "Google Scholar Logo",
+      mapping: function mapping(queries, filters) {
+        try {
+          return queries.map(function (part) {
+           var terms = part.split(/^(any\,contains\,)/)[2];
+           var termed = terms.split(/(\,AND)$/)[0];
+           return termed.replace(/~2F/, "%2F");
+          }).join(' ');
+        } catch (e) {
+          return '';
+        }
+      }
+    }, {
+      "name": "EBSCO",
+      "url": "http://er.lib.ksu.edu/login?url=http://search.ebscohost.com/login.aspx?direct=true&scope=site&type=1&site=ehost-live&db=27h,aph,gnh,agr,awh,ahl,h9h,h9i,h9j,h9k,h9m,ant,asa,aax,aft,ndh,n4h,n9h,n8h,buh,ufh,cph,c9h,e872sww,cja,eric,eax,eft,hev,zbh,funk,8gh,hxh,hch,e871sww,khh,hjh,fqh,lgh,lxh,llf,lii,e870sww,lfh,e865sww,ulh,cmedm,kah,mzh,e864sww,f5h,msn,lth,mmt,e866sww,mih,mth,mah,n5h,nsm,ddu,24h,pix,e867sww,prh,tfh,pbh,rft,rgr,bwh,rlh,sph,b9h,tth,trh,tdh,voh,nmr,fzh,nlebk,e001mww&lang=en&authtype=ip&bquery=",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/EBSCO_Information_Services_20xx_logo.svg/200px-EBSCO_Information_Services_20xx_logo.svg.png",
+      "alt": "EBSCO Logo",
+      mapping: function mapping(queries, filters) {
+        try {
+          return queries.map(function (part) {
+           var terms = part.split(/^(any\,contains\,)/)[2];
+           var termed = terms.split(/(\,AND)$/)[0];
+           return termed.replace(/~2F/, "%2F");
+          }).join(' ');
+        } catch (e) {
+          return '';
+        }
+      }
+    }]);
+  
+    /****************************************************************************************************/
+    // Begin BrowZine - Primo Integration...
+  
+    window.browzine = {
+      api: "https://public-api.thirdiron.com/public/v1/libraries/160",
+      apiKey: "0cfaacdf-9b7b-4181-bb4a-23d0433b7c04",
+  
+      journalCoverImagesEnabled: true,
+  
+      journalBrowZineWebLinkTextEnabled: true,
+      journalBrowZineWebLinkText: "View Journal Contents",
+  
+      acticleBrowZineWebLinkTextEnabled: true,
+      articleBrowZineWebLinkText: "View Issue Contents",
+  
+      articlePDFDownloadLinkEnabled: true,
+      articlePDFDownloadLinkText: "Download PDF",
+  
+      printRecordsIntegrationEnabled: true,
+  
+      unpaywallEmailAddressKey: "exlibrissupport@ksu.edu",
+  
+      articlePDFDownloadViaUnpaywallEnabled: true,
+      articlePDFDownloadViaUnpaywallText: "Download PDF (via Unpaywall)",
+  
+      articleLinkViaUnpaywallEnabled: true,
+      articleLinkViaUnpaywallText: "Read Article (via Unpaywall)",
+  
+      articleAcceptedManuscriptPDFViaUnpaywallEnabled: true,
+      articleAcceptedManuscriptPDFViaUnpaywallText: "Download PDF (Accepted Manuscript via Unpaywall)",
+  
+      articleAcceptedManuscriptArticleLinkViaUnpaywallEnabled: true,
+      articleAcceptedManuscriptArticleLinkViaUnpaywallText: "Read Article (Accepted Manuscript via Unpaywall)"
+    };
+  
+    browzine.script = document.createElement("script");
+    browzine.script.src = "https://s3.amazonaws.com/browzine-adapters/primo/browzine-primo-adapter.js";
+    document.head.appendChild(browzine.script);
+  
+    app.controller('prmSearchResultAvailabilityLineAfterAppStoreGeneratedControllerAppStoreGeneratedAppStoreGenerated', function($scope) {
+      this.$onInit = function(){
+        {
+          window.browzine.primo.searchResult($scope);
+        }
+      };
+    });
+  
+    app.component('prmSearchResultAvailabilityLineAfterAppStoreGenerated', {
+      bindings: { parentCtrl: '<' },
+      controller: 'prmSearchResultAvailabilityLineAfterAppStoreGeneratedControllerAppStoreGeneratedAppStoreGenerated'
+    });
+    // ... End BrowZine - Primo Integration
+  
+  
+    /*----------below is the code for LibraryH3lp-----------*/
+    var needsJs = document.createElement('div');
+    needsJs.setAttribute('class', 'needs-js');
+    var closeChatButton = document.createElement('button');
+    closeChatButton.innerHTML = '☓';
+    closeChatButton.setAttribute('style', 'border: 0 none; background: #f5f7fa; font-size: 16px; position: absolute; padding: 5px; right: -5px; top: -15px; border-radius: 50%; width: 30px; font-weight: bold;');
+    var chatFrameWrap = document.createElement('div');
+    chatFrameWrap.setAttribute('id', 'chat-frame-wrap');
+    chatFrameWrap.setAttribute('style', 'display: none; width: 280px; background-color: #f5f5f5; padding: 0; box-shadow: -5px -5px 20px 5px rgba(0, 0, 0, 0.3); position: fixed; bottom: 0; right: 10px; border: 0 none; z-index: 200;');
+    chatFrameWrap.appendChild(closeChatButton);
+    chatFrameWrap.appendChild(needsJs);
+  
+    var chatButton = document.createElement('button');
+    chatButton.innerHTML = "<img src=\"custom/01KSU_INST-NewUI/img/output-onlinepngtools.png\" width=\"119px\" height=\"64.766px\">";
+    chatButton.setAttribute('style', 'position: fixed; top: 400px; right 10px; padding: 0; right: 10px; border: 0 none; z-index: 200; box-shadow: none;  text-align: center; display: inline-block; text-decoration: none; background:transparent;');
+  
+    var showChat = false;
+    function toggleChat() {
+      chatFrameWrap.style.display = showChat ? 'none' : 'block';
+      showChat = !showChat;
+    }
+    closeChatButton.addEventListener('click', toggleChat);
+    closeChatButton.addEventListener('touchend', toggleChat);
+    chatButton.addEventListener('click', toggleChat);
+    chatButton.addEventListener('touchend', toggleChat);
+  
+    var chatWidget = document.createElement('aside');
+    chatWidget.setAttribute('tabindex', '-1');
+    chatWidget.setAttribute('style', 'display: block;');
+    chatWidget.appendChild(chatButton);
+    chatWidget.appendChild(chatFrameWrap);
+    document.body.appendChild(chatWidget);
+  
+    var s = document.createElement('script');
+    s.id = 'localScript';
+    s.src = 'https://libraryh3lp.com/js/libraryh3lp.js?11156';
+    document.body.appendChild(s);
+    /*---------------LibraryH3lp code ends here---------------*/
+  
+     
+  })();
+  
+  //Auto generated code by primo app store DO NOT DELETE!!! -START-
+  /*
+      hookName is a place holder with should hold the hook name not including "prm" at the beginning and in upper camel case
+      e.g: for hook prmSearchBarAfter (in html prm-search-bar-after) it should be given "SearchBarAfter"
+   */
+  app.controller('FacetAfterController', [function() {
+    var vm = this;
+
+    this.$onInit = function(){
+      {}
+    };
+  }]);
+  
+  app.component('prmFacetAfter', {
+    bindings: { parentCtrl: '<' },
+    controller: 'FacetAfterController',
+    template: '\n    <prm-facet-after-app-store-generated parent-ctrl="$ctrl.parentCtrl"></prm-facet-after-app-store-generated>\n'
+  
+  });
+  
+  //Auto generated code by primo app store DO NOT DELETE!!! -END-
+  
+  //Auto generated code by primo app store DO NOT DELETE!!! -START-
+  /*
+      hookName is a place holder with should hold the hook name not including "prm" at the beginning and in upper camel case
+      e.g: for hook prmSearchBarAfter (in html prm-search-bar-after) it should be given "SearchBarAfter"
+   */
+  app.controller('FacetExactAfterController', [function() {
+    var vm = this;
+
+    this.$onInit = function(){
+      {}
+    };
+  }]);
+  
+  app.component('prmFacetExactAfter', {
+    bindings: { parentCtrl: '<' },
+    controller: 'FacetExactAfterController',
+    template: '\n    <prm-facet-exact-after-app-store-generated parent-ctrl="$ctrl.parentCtrl"></prm-facet-exact-after-app-store-generated>\n'
+  
+  });
+  
+  //Auto generated code by primo app store DO NOT DELETE!!! -END-
+  
+  //Auto generated code by primo app store DO NOT DELETE!!! -START-
+  /*
+      hookName is a place holder with should hold the hook name not including "prm" at the beginning and in upper camel case
+      e.g: for hook prmSearchBarAfter (in html prm-search-bar-after) it should be given "SearchBarAfter"
+   */
+  app.controller('LocationItemsAfterController', [function() {
+    var vm = this;
+
+    this.$onInit = function(){
+      {}
+    };
+  }]);
+  
+  app.component('prmLocationItemsAfter', {
+    bindings: { parentCtrl: '<' },
+    controller: 'LocationItemsAfterController',
+    template: '\n    <prm-location-items-after-app-store-generated parent-ctrl="$ctrl.parentCtrl"></prm-location-items-after-app-store-generated>\n'
+  
+  });
+  
+  //Auto generated code by primo app store DO NOT DELETE!!! -END-
+  
+  //Auto generated code by primo app store DO NOT DELETE!!! -START-
+  /*
+      hookName is a place holder with should hold the hook name not including "prm" at the beginning and in upper camel case
+      e.g: for hook prmSearchBarAfter (in html prm-search-bar-after) it should be given "SearchBarAfter"
+   */
+  app.controller('PageNavMenuAfterController', [function() {
+    var vm = this;
+
+    this.$onInit = function(){
+      {}
+    };
+  }]);
+  
+  app.component('prmPageNavMenuAfter', {
+    bindings: { parentCtrl: '<' },
+    controller: 'PageNavMenuAfterController',
+    template: '\n    <prm-page-nav-menu-after-app-store-generated parent-ctrl="$ctrl.parentCtrl"></prm-page-nav-menu-after-app-store-generated>\n'
+  
+  });
+  
+  //Auto generated code by primo app store DO NOT DELETE!!! -END-
+  
+  //Auto generated code by primo app store DO NOT DELETE!!! -START-
+  /*
+      hookName is a place holder with should hold the hook name not including "prm" at the beginning and in upper camel case
+      e.g: for hook prmSearchBarAfter (in html prm-search-bar-after) it should be given "SearchBarAfter"
+   */
+  app.controller('SearchBarAfterController', [function() {
+    var vm = this;
+
+    this.$onInit = function(){
+      {}
+    };
+  }]);
+  
+  app.component('prmSearchBarAfter', {
+    bindings: { parentCtrl: '<' },
+    controller: 'SearchBarAfterController',
+    template: '\n    <prm-search-bar-after-app-store-generated parent-ctrl="$ctrl.parentCtrl"></prm-search-bar-after-app-store-generated>\n'
+  
+  });
+  
+  //Auto generated code by primo app store DO NOT DELETE!!! -END-
+  
+  //Auto generated code by primo app store DO NOT DELETE!!! -START-
+  /*
+      hookName is a place holder with should hold the hook name not including "prm" at the beginning and in upper camel case
+      e.g: for hook prmSearchBarAfter (in html prm-search-bar-after) it should be given "SearchBarAfter"
+   */
+  app.controller('SearchResultAvailabilityLineAfterController', [function() {
+    var vm = this;
+
+    this.$onInit = function(){
+      {}
+    };
+  }]);
+  
+  app.component('prmSearchResultAvailabilityLineAfter', {
+    bindings: { parentCtrl: '<' },
+    controller: 'SearchResultAvailabilityLineAfterController',
+    template: '\n    <prm-search-result-availability-line-after-app-store-generated parent-ctrl="$ctrl.parentCtrl"></prm-search-result-availability-line-after-app-store-generated>\n'
+  
+  });
+  
+  //Auto generated code by primo app store DO NOT DELETE!!! -END-
+  })();
