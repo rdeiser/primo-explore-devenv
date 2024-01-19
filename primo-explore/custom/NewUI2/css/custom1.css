@@ -1,3 +1,34 @@
+/* START CM recommended changes */
+/* OTB #44707b text */
+prm-gallery-collection .collection-folder .collection-overlay, prm-collection-discovery-view-switcher .md-button.is-active, prm-icon md-icon.md-primoExplore-theme svg, prm-icon md-icon svg, prm-gallery-item .collection-element .item-title {
+  color: #512888;
+}
+
+/* collections breadcrumb */
+prm-collection-discovery prm-collection-navigation-breadcrumbs-item .md-button.button-as-link.link-alt-color {
+  color: #fff;
+}
+
+/* collections breadcrumb hover */
+prm-collection-discovery:hover prm-collection-navigation-breadcrumbs-item:hover .md-button.button-as-link.link-alt-color:hover, prm-collection-discovery-view-switcher .md-button.is-active:hover:hover:not([disabled]), prm-collection-discovery-view-switcher .md-button.is-active:hover:not([disabled]), prm-collection-discovery-view-switcher .md-button.is-active:focus:focus:not([disabled]), prm-collection-discovery-view-switcher .md-button.is-active:focus:not([disabled]) {
+  background-color:#73529f;
+}
+
+/* modifies the hyperlink within brief collection display hover */
+
+p[ng-click="$ctrl.checkClick($event)"] a[href="https://guides.lib.k-state.edu/c.php?g=1166076&p=8513053"] {
+  color: #512888; /* replace #FF0000 with your desired color */
+ }
+
+
+/* prm-icon md-icon.md-primoExplore-theme svg, prm-icon md-icon svg{ color:inherit;} */
+/* [ng-bind-html="$ctrl.description"] {
+  background-color:#73529f;
+} */
+
+/* END CM recommended changes */
+
+/* removes the OTB no search results landing page */
 prm-no-search-result > md-card {
   display:none;
 }
@@ -7,15 +38,11 @@ prm-no-search-result > md-card {
   font-weight: bolder;
   font-size: larger;
 }
-/* 
-[ng-bind-html="$ctrl.description"] {
-  color: #fff;
-  background-color:#73529f;
-} */
 
 /* The following code will modify the URL within the description field for the Collection #81399456450002401, a[href="https://guides.lib.k-state.edu/c.php?g=1166076&p=8513053"]:hover */
+ 
 a[href="https://guides.lib.k-state.edu/c.php?g=1166076&p=8513053"]{
-  color: #73e9ff;
+  color: #fff;
   font-weight: bold;
   text-decoration: underline;
 }
