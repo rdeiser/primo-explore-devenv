@@ -1,3 +1,25 @@
+prm-no-search-result > md-card {
+  display:none;
+}
+
+/* Expand my results facet */
+[ng-change="$ctrl.changePcAvailability()"] {
+  font-weight: bolder;
+  font-size: larger;
+}
+/* 
+[ng-bind-html="$ctrl.description"] {
+  color: #fff;
+  background-color:#73529f;
+} */
+
+/* The following code will modify the URL within the description field for the Collection #81399456450002401, a[href="https://guides.lib.k-state.edu/c.php?g=1166076&p=8513053"]:hover */
+a[href="https://guides.lib.k-state.edu/c.php?g=1166076&p=8513053"]{
+  color: #73e9ff;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 /*Collection Discovery Top Banner*/
 .prm-explore-main .header .transparent-top-bar div, prm-explore-main .header, prm-explore-main .header .transparent-top-bar:before, prm-search-bookmark-filter .md-button {
   background-color: #512888 ;

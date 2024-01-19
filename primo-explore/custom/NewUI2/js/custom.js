@@ -2,7 +2,7 @@
   "use strict";
   'use strict';
   
-  var app = angular.module('viewCustom', ['angularLoad', 'externalSearch', 'googleAnalytics']);
+  var app = angular.module('viewCustom', ['angularLoad', 'externalSearch']);
   
   "use strict";
   'use strict';
@@ -43,7 +43,7 @@ w[l] = w[l] || [];w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js'
 })(window, document, 'script', 'dataLayer', GTM_CODE);
 /* <!-- End Google Tag Manager --> */
 
-/*//START - Google Analytics
+//START - Google Analytics
 
 var googleAnalyticsUrl = document.createElement('script');
 googleAnalyticsUrl.src = "https://www.googletagmanager.com/gtag/js?id=G-336164211";
@@ -58,7 +58,7 @@ gtag('js', new Date());
 gtag('config', 'G-336164211',{ 'debug_mode':true });`;
 document.head.appendChild(googleAnalyticsCode);
 //gtag('config', 'G-336164211');
-//END - Google Analytics*/
+//END - Google Analytics
   
     /* StackMap: Start */
   
@@ -119,73 +119,6 @@ document.head.appendChild(googleAnalyticsCode);
         template: '<md-card class="alert-bar"><md-card-content class="alert-bar-content"><p>Most K-State Libraries buildings are currently open with limited capacity. Please visit <a href="https://www.lib.k-state.edu/continuation">our continuation of services webpage</a> for updates related to COVID-19. <br> To request help, you can visit <a href="https://www.lib.k-state.edu/ask">with a librarian. </a></p></md-card-content></md-card>'
     });*/
     
-
-    
-
-        /* Start of Google Analytics */
-  
-angular.module('googleAnalytics', []);
-  
-angular.module('googleAnalytics').run(function ($rootScope, $interval, analyticsOptions) {
-
-  if (analyticsOptions.hasOwnProperty("enabled") && analyticsOptions.enabled) {
-
-    if (analyticsOptions.hasOwnProperty("siteId") && analyticsOptions.siteId != '') {
-
-      if (typeof ga === 'undefined') {
-
-        (function (i, s, o, g, r, a, m) {
-          i['GoogleAnalyticsObject'] = r;i[r] = i[r] || function () {
-
-            (i[r].q = i[r].q || []).push(arguments);
-          }, i[r].l = 1 * new Date();a = s.createElement(o), m = s.getElementsByTagName(o)[0];a.async = 1;a.src = g;m.parentNode.insertBefore(a, m);
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-        ga('create', analyticsOptions.siteId, { 'alwaysSendReferrer': true });
-
-        ga('set', 'anonymizeIp', true);
-      }
-    }
-
-    $rootScope.$on('$locationChangeSuccess', function (event, toState, fromState) {
-
-      if (analyticsOptions.hasOwnProperty("defaultTitle")) {
-
-        var documentTitle = analyticsOptions.defaultTitle;
-
-        var interval = $interval(function () {
-
-          if (document.title !== '') documentTitle = document.title;
-
-          if (window.location.pathname.indexOf('openurl') !== -1 || window.location.pathname.indexOf('fulldisplay') !== -1) if (angular.element(document.querySelector('prm-full-view-service-container .item-title>a')).length === 0) return;else documentTitle = angular.element(document.querySelector('prm-full-view-service-container .item-title>a')).text();
-
-          if (typeof ga !== 'undefined') {
-
-            if (fromState != toState) ga('set', 'referrer', fromState);
-
-            ga('set', 'location', toState);
-
-            ga('set', 'title', documentTitle);
-
-            ga('send', 'pageview');
-          }
-
-          $interval.cancel(interval);
-        }, 0);
-      }
-    });
-  }
-});
-
-angular.module('googleAnalytics').value('analyticsOptions', {
-
-  enabled: true,
-
-  siteId: 'UA-40575926-3',
-
-  defaultTitle: 'Search It'
-
-});
   
     //Auto activates the filter for items in full display
     //written on 2/4/20 by Joe Ferguson from the University of Tennessee, Knoxville
@@ -275,7 +208,7 @@ angular.module('googleAnalytics').value('analyticsOptions', {
     app.value('searchTargets', [{
       "name": "Worldcat",
       "url": "https://kansasstateuniversity.on.worldcat.org/search?",
-      "img": "https://k-state-primosb.hosted.exlibrisgroup.com/primo-explore/custom/NewUI/img/worldcat-logo.png",
+      "img": "/discovery/custom/01KSU_INST-NewUI/img/worldcat-logo.png",
       "alt": "Worldcat Logo",
       mapping: function mapping(queries, filters) {
         var query_mappings = {
@@ -301,7 +234,7 @@ angular.module('googleAnalytics').value('analyticsOptions', {
     }, {
       "name": "Google Scholar",
       "url": "https://scholar.google.com/scholar?inst=6485013114777526331&q=",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/200px-Google_%22G%22_Logo.svg.png",
+      "img": "/discovery/custom/01KSU_INST-NewUI/img/logo-googlescholar.png",
       "alt": "Google Scholar Logo",
       mapping: function mapping(queries, filters) {
         try {
@@ -424,6 +357,57 @@ angular.module('googleAnalytics').value('analyticsOptions', {
     s.src = 'https://libraryh3lp.com/js/libraryh3lp.js?11156';
     document.body.appendChild(s);
     /*---------------LibraryH3lp code ends here---------------*/
+
+   // Enhance No Results tile
+	app.controller('prmNoSearchResultAfterController', [function () {
+		var vm = this;
+
+    // Changed for upgrade from Angular 1.6 to 1.8 - JPH 10/11/22
+    vm.$onInit = function () {
+      vm.getSearchTerm = getSearchTerm;
+      vm.query = vm.parentCtrl.searchStateService.searchObject.query || '';
+      vm.searchScope = vm.parentCtrl.searchStateService.searchObject.scope || '';
+      vm.pciSetting = vm.parentCtrl.searchStateService.searchObject.pcAvailability || '';
+      function getSearchTerm() {
+         return vm.parentCtrl.term;
+       }
+    }
+	}]);
+
+	app.component('prmNoSearchResultAfter',{
+		bindings: {parentCtrl: '<'},
+		controller: 'prmNoSearchResultAfterController',
+		template: '<div ng-if="$ctrl.query !== \'any,contains,\'"><md-content layout-xs="column" layout="row" class="_md md-primoExplore-theme layout-xs-column layout-row"><div flex="60" layout="column" class="layout-column flex-60"><md-card class="default-card _md md-primoExplore-theme"><md-card-title><md-card-title-text><span class="md-headline ng-scope">No records found</span></md-card-title-text></md-card-title><md-card-content><p><span>There are no results matching your search:<blockquote><i>{{$ctrl.getSearchTerm()}}</i>.</blockquote><div ng-if="$ctrl.pciSetting !== \'true\'"><p><b>Try searching at <a href="https://kansasstateuniversity.on.worldcat.org/search?queryString={{term}}" target="_blank">  <img src="https://k-state-primosb.hosted.exlibrisgroup.com/primo-explore/custom/NewUI/img/worldcat-logo.png" width="22" height="22" alt="worldcat-logo">WorldCat </a></b></p></div></span></p><p><span class="bold-text ng-scope">Suggestions:</span></p><ul><li class="ng-scope">Make sure that all words are spelled correctly.</li><li class="ng-scope">Try a different search scope.</li><li class="ng-scope">Try different keywords.</li><li class="ng-scope">Try more general keywords.</li><li class="ng-scope">Try fewer keywords.</li></ul></md-card-content></md-card></div><div flex-xs="" flex="40" layout="column" class="layout-column flex-xs flex-40"><md-card class="default-card _md md-primoExplore-theme"><md-card-title><md-card-title-text><span class="md-headline">Please Chat with Library Staff!</span></md-card-title-text></md-card-title><md-card-content><div class="needs-js">Chat loading...</div></md-card-content></md-card></div></md-content></div>'
+	});
+
+    // component to activate search when search scope changed per the Search It Working Group suggesstion
+    // see for more information: https://developers.exlibrisgroup.com/blog/automatically-activate-a-search-after-changing-search-scope/
+    app.component('prmTabsAndScopesSelectorAfter', { 
+      bindings: {
+        parentCtrl: '<'
+      },
+      controller: function($scope) {
+        this.$onInit = function() {
+          {
+            setTimeout(function() {
+              function activateSearch() {
+                setTimeout(function() {
+                  document.getElementsByClassName("zero-margin button-confirm md-button md-primoExplore-theme")[0].click()
+                }, 500)
+              }                                       
+              var searchScopes = document.querySelectorAll('[id^="select_option_"]')
+              for (var i in searchScopes) {
+                searchScopes[i].onclick = function() {
+                  activateSearch();
+                };
+              }                     
+            }, 500)
+          }
+        };
+      }                    
+    });
+    
+    // ... End: Auto search when change search scope
   
      
   })();

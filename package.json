@@ -13,7 +13,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "babelify": "8.0.0",
     "bluebird": "3.5.4",
-    "browser-sync": "^2.26.5",
+    "browser-sync": "2.9.9",
     "browserify": "16.2.3",
     "camel-case": "^3.0.0",
     "colors": "^1.3.3",
@@ -23,11 +23,10 @@
     "css-color-extractor": "0.0.5",
     "css-color-extractor-cli": "0.0.2",
     "del": "4.1.1",
-    "eslint": "^8.29.0",
     "fs-extra": "7.0.1",
     "glob": "7.1.3",
     "graceful-fs": "4.1.15",
-    "gulp": "4.0.1",
+    "gulp": "4.0.2",
     "gulp-angular-templatecache": "^2.2.7",
     "gulp-autoprefixer": "6.1.0",
     "gulp-babel": "7.0.1",
@@ -49,28 +48,31 @@
     "gulp4-run-sequence": "^1.0.1",
     "http-response-object": "3.0.2",
     "listdirs": "3.1.1",
-    "lodash": "^4.17.21",
+    "lodash": "4.17.19",
     "merge-stream": "1.0.1",
     "minimatch": "3.0.4",
-    "minimist": "^1.2.6",
+    "minimist": "1.2.5",
     "prompt": "1.0.0",
     "protractor": "5.4.2",
     "protractor-image-comparison": "3.1.0",
     "request": "^2.88.0",
     "require-dir": "1.2.0",
     "run-sequence": "^2.2.1",
-    "shelljs": "^0.8.5",
+    "shelljs": "0.8.3",
     "stream-to-promise": "^2.2.0",
     "tar-fs": "2.0.0",
     "vinyl-buffer": "1.0.1",
     "vinyl-source-stream": "2.0.0"
   },
   "engines": {
-    "node": ">=16.20.0"
+    "node": ">=16.17.0"
   },
   "browserslist": [
     "last 2 version",
     "> 2%"
   ],
-  "repository": "https://github.com/ExLibrisGroup/primo-explore-devenv"
+  "repository": "https://github.com/ExLibrisGroup/primo-explore-devenv",
+  "dependencies": {
+    "primo-explore-custom-no-results": "^0.0.2"
+  }
 }
