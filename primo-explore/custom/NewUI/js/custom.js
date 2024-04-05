@@ -164,7 +164,7 @@ document.head.appendChild(googleAnalyticsCode);
       }]
     }).component('prmFacetExactAfterAppStoreGenerated', {
       bindings: { parentCtrl: '<' },
-      template: '\n      <div ng-if="name === \'External Search\'">\n          <div ng-hide="$ctrl.parentCtrl.facetGroup.facetGroupCollapsed">\n              <div class="section-content animate-max-height-variable">\n                  <div class="md-chips md-chips-wrap">\n                      <div ng-repeat="target in targets" aria-live="polite" class="md-chip animate-opacity-and-scale facet-element-marker-local4">\n                          <div class="md-chip-content layout-row" role="button" tabindex="0">\n                              <strong dir="auto" title="{{ target.name }}">\n                                  <a ng-href="{{ target.url + target.mapping(queries, filters) }}" target="_blank">\n                                      <img ng-src="{{ target.img }}" width="22" height="22" alt="{{ target.alt }}" style="vertical-align:middle;"> {{ target.name }}\n                                  </a>\n                              </strong>\n                          </div>\n                      </div>\n                  </div>\n              </div>\n          </div>\n      </div>',
+      template: '\n      <div ng-if="name === \'External Search\'">\n          <div ng-hide="$ctrl.parentCtrl.facetGroup.facetGroupCollapsed">\n              <div class="section-content animate-max-height-variable">\n                  <div class="md-chips md-chips-wrap">\n                      <div ng-repeat="target in targets" aria-live="polite" class="md-chip animate-opacity-and-scale facet-element-marker-local4">\n                          <div class="md-chip-content layout-row" role="button" tabindex="0">\n                              <strong dir="auto" title="{{ target.name }}">\n                                  <a ng-href="{{ target.url + target.mapping(queries, filters) }}" target="_blank">\n                                      <img ng-src="{{ target.img }}" width="22" height="22" alt="{{ target.alt }}" style="vertical-align:middle;"> {{ target.name }}\n                                  </a>{{target.des }}\n                              </strong>\n                          </div>\n                      </div>\n                  </div>\n              </div>\n          </div>\n      </div>',
       controller: ['$scope', '$location', 'searchTargets', function ($scope, $location, searchTargets) {
         this.$onInit = function () {
         $scope.name = this.parentCtrl.facetGroup.name;
@@ -231,6 +231,12 @@ document.head.appendChild(googleAnalyticsCode);
           return '';
         }
       }
+    }, {
+      "name": "First Search",
+      "url": "http://er.lib.ksu.edu/login?url=https://firstsearch.oclc.org/fsip?db=WorldCat",
+      "img": "https://help.oclc.org/@api/deki/files/4428/firstsearch-87x40-badge.gif?revision=1",
+      "alt": "Firstsearch Logo",
+      "des": "--Requires Authentication"
     }, {
       "name": "Google Scholar",
       "url": "https://scholar.google.com/scholar?inst=6485013114777526331&q=",
@@ -320,79 +326,95 @@ document.head.appendChild(googleAnalyticsCode);
   
   
     /*----------below is the code for LibraryH3lp-----------*/
-    var needsJs = document.createElement('div');
-    needsJs.setAttribute('class', 'needs-js');
-    var closeChatButton = document.createElement('button');
-    closeChatButton.innerHTML = '☓';
-    closeChatButton.setAttribute('style', 'border: 0 none; background: #f5f7fa; font-size: 16px; position: absolute; padding: 5px; right: -5px; top: -15px; border-radius: 50%; width: 30px; font-weight: bold;');
-    var chatFrameWrap = document.createElement('div');
-    chatFrameWrap.setAttribute('id', 'chat-frame-wrap');
-    chatFrameWrap.setAttribute('style', 'display: none; width: 280px; background-color: #f5f5f5; padding: 0; box-shadow: -5px -5px 20px 5px rgba(0, 0, 0, 0.3); position: fixed; bottom: 0; right: 10px; border: 0 none; z-index: 200;');
-    chatFrameWrap.appendChild(closeChatButton);
-    chatFrameWrap.appendChild(needsJs);
-  
-    var chatButton = document.createElement('button');
-    chatButton.innerHTML = "<img src=\"custom/01KSU_INST-NewUI/img/output-onlinepngtools.png\" width=\"119px\" height=\"64.766px\">";
-    chatButton.setAttribute('style', 'position: fixed; top: 400px; right 10px; padding: 0; right: 10px; border: 0 none; z-index: 200; box-shadow: none;  text-align: center; display: inline-block; text-decoration: none; background:transparent;');
-  
-    var showChat = false;
-    function toggleChat() {
-      chatFrameWrap.style.display = showChat ? 'none' : 'block';
-      showChat = !showChat;
+    
+    if (!document.querySelector('.chickenshit')) {
+      var needsJs = document.createElement('div');
+        needsJs.setAttribute('class', 'needs-js');
+        var closeChatButton = document.createElement('button');
+        closeChatButton.innerHTML = '☓';
+        closeChatButton.setAttribute('style', 'border: 0 none; background: #f5f7fa; font-size: 16px; position: absolute; padding: 5px; right: -5px; top: -15px; border-radius: 50%; width: 30px; font-weight: bold;');
+        var chatFrameWrap = document.createElement('div');
+        chatFrameWrap.setAttribute('id', 'chat-frame-wrap');
+        chatFrameWrap.setAttribute('style', 'display: none; width: 280px; background-color: #f5f5f5; padding: 0; box-shadow: -5px -5px 20px 5px rgba(0, 0, 0, 0.3); position: fixed; bottom: 0; right: 10px; border: 0 none; z-index: 200;');
+        chatFrameWrap.appendChild(closeChatButton);
+        chatFrameWrap.appendChild(needsJs);
+      
+        var chatButton = document.createElement('button');
+        chatButton.innerHTML = "<img src=\"custom/01KSU_INST-NewUI/img/output-onlinepngtools.png\" width=\"119px\" height=\"64.766px\">";
+        chatButton.setAttribute('style', 'position: fixed; top: 400px; right 10px; padding: 0; right: 10px; border: 0 none; z-index: 200; box-shadow: none;  text-align: center; display: inline-block; text-decoration: none; background:transparent;');
+      
+        var showChat = false;
+        function toggleChat() {
+          chatFrameWrap.style.display = showChat ? 'none' : 'block';
+          showChat = !showChat;
+        }
+        closeChatButton.addEventListener('click', toggleChat);
+        closeChatButton.addEventListener('touchend', toggleChat);
+        chatButton.addEventListener('click', toggleChat);
+        chatButton.addEventListener('touchend', toggleChat);
+      
+        var chatWidget = document.createElement('aside');
+        chatWidget.setAttribute('tabindex', '-1');
+        chatWidget.setAttribute('style', 'display: block;');
+        chatWidget.appendChild(chatButton);
+        chatWidget.appendChild(chatFrameWrap);
+        document.body.appendChild(chatWidget);
+      
+        var s = document.createElement('script');
+        s.id = 'localScript';
+        s.src = 'https://libraryh3lp.com/js/libraryh3lp.js?11156';
+        document.body.appendChild(s);
     }
-    closeChatButton.addEventListener('click', toggleChat);
-    closeChatButton.addEventListener('touchend', toggleChat);
-    chatButton.addEventListener('click', toggleChat);
-    chatButton.addEventListener('touchend', toggleChat);
-  
-    var chatWidget = document.createElement('aside');
-    chatWidget.setAttribute('tabindex', '-1');
-    chatWidget.setAttribute('style', 'display: block;');
-    chatWidget.appendChild(chatButton);
-    chatWidget.appendChild(chatFrameWrap);
-    document.body.appendChild(chatWidget);
-  
-    var s = document.createElement('script');
-    s.id = 'localScript';
-    s.src = 'https://libraryh3lp.com/js/libraryh3lp.js?11156';
-    document.body.appendChild(s);
     /*---------------LibraryH3lp code ends here---------------*/
+
+   // Enhance No Results tile
+	app.controller('prmNoSearchResultAfterController', [function () {
+		var vm = this;
+
+    // Changed for upgrade from Angular 1.6 to 1.8 - JPH 10/11/22
+    vm.$onInit = function () {
+      vm.getSearchTerm = getSearchTerm;
+      vm.query = vm.parentCtrl.searchStateService.searchObject.query || '';
+      vm.searchScope = vm.parentCtrl.searchStateService.searchObject.scope || '';
+      vm.pciSetting = vm.parentCtrl.searchStateService.searchObject.pcAvailability || '';
+      function getSearchTerm() {
+         return vm.parentCtrl.term;
+       }
+    }
+	}]);
+
+	app.component('prmNoSearchResultAfter',{
+		bindings: {parentCtrl: '<'},
+		controller: 'prmNoSearchResultAfterController',
+		template: '<div ng-if="$ctrl.query !== \'any,contains,\'"><md-content layout-xs="column" layout="row" class="_md md-primoExplore-theme layout-xs-column layout-row"><div flex="60" layout="column" class="layout-column flex-60"><md-card class="default-card _md md-primoExplore-theme"><md-card-title><md-card-title-text><span class="md-headline ng-scope">No records found</span></md-card-title-text></md-card-title><md-card-content><p><span>There are no results matching your search:<blockquote><i>{{$ctrl.getSearchTerm()}}</i>.</blockquote><div ng-if="$ctrl.pciSetting !== \'true\'"><p><b>Try searching at<a href="https://kansasstateuniversity.on.worldcat.org/search?queryString={{$ctrl.getSearchTerm()}}" target="_blank">  <img src="https://k-state-primosb.hosted.exlibrisgroup.com/primo-explore/custom/NewUI/img/worldcat-logo.png" width="22" height="22" alt="worldcat-logo">WorldCat </a><br>Enter your search term(s) in <a href="http://er.lib.ksu.edu/login?url=https://firstsearch.oclc.org/fsip?db=WorldCat" target="_blank"><img src="https://help.oclc.org/@api/deki/files/4435/firstsearch-127x25-button.gif?revision=1"></a>--Requires Authentication</b></p></div></span></p><p><span class="bold-text ng-scope">Suggestions:</span></p><ul><li class="ng-scope">Make sure that all words are spelled correctly.</li><li class="ng-scope">Try a different search scope.</li><li class="ng-scope">Try different keywords.</li><li class="ng-scope">Try more general keywords.</li><li class="ng-scope">Try fewer keywords.</li></ul></md-card-content></md-card></div><div flex-xs="" flex="40" layout="column" class="layout-column flex-xs flex-40"><md-card class="default-card _md md-primoExplore-theme"><md-card-title><md-card-title-text><span class="md-headline">Please Chat with Library Staff!</span></md-card-title-text></md-card-title><md-card-content class="chickenshit"><div class="libraryh3lp" style="" data-lh3-jid="ksulsearchit@chat.libraryh3lp.com"><iframe title="chat box" src="https://libraryh3lp.com/chat/ksulsearchit@chat.libraryh3lp.com?skin=26842&amp;referer=http%3A%2F%2Flocalhost%3A8003%2Fdiscovery%2Fsearch%3Fquery%3Dany%2Ccontains%2Cafsd%3Blkfjasdapwioej%2520vdnneriuel%3Bjkft%2520nhvlk%3Bdrewpoq%3Bt6l%2520ghvnhskdalswdpoer%3Bw%26tab%3DEverything%26search_scope%3DMyInst_and_CI%26vid%3D01KSU_INST%3ANewUI%26lang%3Den%26offset%3D0" frameborder="1" style="width: 320px; height: 200px; border: 2px inset black;"></iframe></div></md-card-content></md-card></div></md-content></div>'
+	});
 
     // component to activate search when search scope changed per the Search It Working Group suggesstion
     // see for more information: https://developers.exlibrisgroup.com/blog/automatically-activate-a-search-after-changing-search-scope/
-    // Modified to change the place-holder text for the `Course Reserves` search scope -- 18/01/2024
     app.component('prmTabsAndScopesSelectorAfter', { 
       bindings: {
-      parentCtrl: '<'
+        parentCtrl: '<'
       },
       controller: function($scope) {
-      this.$onInit = function() {
-        {
-          setTimeout(function() {
-            function activateSearch() {
-              setTimeout(function() {
-                document.getElementsByClassName("zero-margin button-confirm md-button md-primoExplore-theme")[0].click()
-              }, 500)
-            }                               
-            var searchScopes = document.querySelectorAll('[id^="select_option_"]')
-            for (var i = 0; i < searchScopes.length; i++) {
-              searchScopes[i].addEventListener('click', function() {
-                activateSearch();
-                // Change placeholder text based on the text content of the clicked <md-option>
-                var clickedSearchScopeText = this.innerText;
-                if (clickedSearchScopeText === 'Course Reserves') {
-                  document.getElementById('searchBar').setAttribute('placeholder', 'Search by title, instructor or course code (e.g., ENGL 100)');
-                } else {
-                  document.getElementById('searchBar').setAttribute('placeholder', 'Search anything');
-                }
-                // Add more conditions here for other search scopes
-              });
-            }               
-          }, 500)
-        }
-      };
-      }               
-     });
+        this.$onInit = function() {
+          {
+            setTimeout(function() {
+              function activateSearch() {
+                setTimeout(function() {
+                  document.getElementsByClassName("zero-margin button-confirm md-button md-primoExplore-theme")[0].click()
+                }, 500)
+              }                                       
+              var searchScopes = document.querySelectorAll('[id^="select_option_"]')
+              for (var i in searchScopes) {
+                searchScopes[i].onclick = function() {
+                  activateSearch();
+                };
+              }                     
+            }, 500)
+          }
+        };
+      }                    
+    });
     
     // ... End: Auto search when change search scope
   

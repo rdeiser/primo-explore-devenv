@@ -64,6 +64,9 @@
     "vinyl-buffer": "1.0.1",
     "vinyl-source-stream": "2.0.0"
   },
+  "browser": {
+    "fs": false
+  },
   "engines": {
     "node": ">=16.17.0"
   },
@@ -73,6 +76,7 @@
   ],
   "repository": "https://github.com/ExLibrisGroup/primo-explore-devenv",
   "dependencies": {
+    "annotpdf": "^1.0.15",
     "primo-explore-custom-no-results": "^0.0.2"
   }
 }

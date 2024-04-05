@@ -1,11 +1,57 @@
-/* The following code will modify the URL within the description field for the Collection #81399456450002401 */
+.libraryh3lp {
+  display: flex;
+}
+
+/* Resoruce typ "Book Review" brief and full results */
+[translate="mediatype.review"] {
+  font-weight: bold;
+  font-size: large;
+  color:#c51a07;
+}
+/* removes the OTB no search results landing page */
+prm-no-search-result > md-card {
+  display:none;
+}
+
+/* START CM recommended changes Ticket #17330 */
+
+/* OTB #44707b text, pin icon,  */
+prm-gallery-collection .collection-folder .collection-overlay, prm-collection-discovery-view-switcher .md-button.is-active, prm-icon md-icon svg, prm-gallery-item .collection-element .item-title, prm-gallery-collection .collection-folder .item-actions .md-button, prm-gallery-collection .collection-folder .item-actions button, .is-grid-view prm-gallery-item .collection-element .item-actions button:hover:not([disabled]), .is-grid-view prm-gallery-item .collection-element .item-actions .md-button, .is-grid-view prm-gallery-item .collection-element .item-actions button{
+  color: #512888;
+}
+
+/* collections breadcrumb */
+prm-collection-discovery prm-collection-navigation-breadcrumbs-item .md-button.button-as-link.link-alt-color {
+  color: #fff;
+}
+
+/* collections breadcrumb hover */
+prm-collection-discovery:hover prm-collection-navigation-breadcrumbs-item:hover .md-button.button-as-link.link-alt-color:hover, prm-collection-discovery-view-switcher .md-button.is-active:hover:hover:not([disabled]), prm-collection-discovery-view-switcher .md-button.is-active:hover:not([disabled]), prm-collection-discovery-view-switcher .md-button.is-active:focus:focus:not([disabled]), prm-collection-discovery-view-switcher .md-button.is-active:focus:not([disabled]) {
+  background-color:#73529f;
+}
+
+/* modifies the hyperlink within brief for the Collection #81419086370002401 display hover */
+p[ng-click="$ctrl.checkClick($event)"] a[href="https://guides.lib.k-state.edu/c.php?g=1166076&p=8513053"] {
+  color: #512888;
+ }
+
+ /* The following code will modify the URL within the description field for the Collection #81419086370002401 */ 
 a[href="https://guides.lib.k-state.edu/c.php?g=1166076&p=8513053"]{
-  color: #73e9ff;
+  color: #fff;
   font-weight: bold;
   text-decoration: underline;
 }
+
+/* END CM recommended changes */
+
+/* Expand my results facet */
+[ng-change="$ctrl.changePcAvailability()"] {
+  font-weight: bolder;
+  font-size: larger;
+}
+
 /*Collection Discovery Top Banner*/
-.prm-explore-main .header .transparent-top-bar div, prm-explore-main .header, prm-explore-main .header .transparent-top-bar:before, prm-search-bookmark-filter .md-button {
+.prm-explore-main .header .transparent-top-bar div, prm-explore-main .header, prm-explore-main .header .transparent-top-bar:before {
   background-color: #512888 ;
   color: #000000;
   }
