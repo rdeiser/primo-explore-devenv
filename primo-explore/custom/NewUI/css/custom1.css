@@ -1,3 +1,8 @@
+/* removes the OTB no search results landing page */
+prm-no-search-result > md-card {
+  display:none;
+}
+
 /* START CM recommended changes Ticket #17330 */
 
 /* OTB #44707b text, pin icon,  */

@@ -358,6 +358,28 @@ document.head.appendChild(googleAnalyticsCode);
     document.body.appendChild(s);
     /*---------------LibraryH3lp code ends here---------------*/
 
+       // Enhance No Results tile
+	app.controller('prmNoSearchResultAfterController', [function () {
+		var vm = this;
+
+    // Changed for upgrade from Angular 1.6 to 1.8 - JPH 10/11/22
+    vm.$onInit = function () {
+      vm.getSearchTerm = getSearchTerm;
+      vm.query = vm.parentCtrl.searchStateService.searchObject.query || '';
+      vm.searchScope = vm.parentCtrl.searchStateService.searchObject.scope || '';
+      vm.pciSetting = vm.parentCtrl.searchStateService.searchObject.pcAvailability || '';
+      function getSearchTerm() {
+         return vm.parentCtrl.term;
+       }
+    }
+	}]);
+
+	app.component('prmNoSearchResultAfter',{
+		bindings: {parentCtrl: '<'},
+		controller: 'prmNoSearchResultAfterController',
+		template: '<div ng-if="$ctrl.query !== \'any,contains,\'"><md-content layout-xs="column" layout="row" class="_md md-primoExplore-theme layout-xs-column layout-row"><div flex="60" layout="column" class="layout-column flex-60"><md-card class="default-card _md md-primoExplore-theme"><md-card-title><md-card-title-text><span class="md-headline ng-scope">No records found</span></md-card-title-text></md-card-title><md-card-content><p><span>There are no results matching your search:<blockquote><i>{{$ctrl.getSearchTerm()}}</i>.</blockquote><div ng-if="$ctrl.pciSetting !== \'true\'"><p><b>Try searching at:<br><a href="https://kansasstateuniversity.on.worldcat.org/search?queryString={{$ctrl.getSearchTerm()}}" target="_blank">  <img src="https://k-state-primosb.hosted.exlibrisgroup.com/primo-explore/custom/NewUI/img/worldcat-logo.png" width="22" height="22" alt="worldcat-logo">WorldCat </a><br><a href="https://scholar.google.com/scholar?inst=6485013114777526331&q={{$ctrl.getSearchTerm()}}" target="_blank">  <img src="/discovery/custom/01KSU_INST-NewUI/img/logo-googlescholar.png" width="22" height="22" alt="Google Scholar Logo">Google Scholar </a><br><a href="http://er.lib.ksu.edu/login?url=http://search.ebscohost.com/login.aspx?direct=true&scope=site&type=1&site=ehost-live&db=27h,aph,gnh,agr,awh,ahl,h9h,h9i,h9j,h9k,h9m,ant,asa,aax,aft,ndh,n4h,n9h,n8h,buh,ufh,cph,c9h,e872sww,cja,eric,eax,eft,hev,zbh,funk,8gh,hxh,hch,e871sww,khh,hjh,fqh,lgh,lxh,llf,lii,e870sww,lfh,e865sww,ulh,cmedm,kah,mzh,e864sww,f5h,msn,lth,mmt,e866sww,mih,mth,mah,n5h,nsm,ddu,24h,pix,e867sww,prh,tfh,pbh,rft,rgr,bwh,rlh,sph,b9h,tth,trh,tdh,voh,nmr,fzh,nlebk,e001mww&lang=en&authtype=ip&bquery={{$ctrl.getSearchTerm()}}" target="_blank">  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/EBSCO_Information_Services_20xx_logo.svg/200px-EBSCO_Information_Services_20xx_logo.svg.png" width="22" height="22" alt="EBSCO Logo">EBSCO </a></p></div></span></p><p><span class="bold-text ng-scope">Suggestions:</span></p><ul><li class="ng-scope">Make sure that all words are spelled correctly.</li><li class="ng-scope">Try a different search scope.</li><li class="ng-scope">Try different keywords.</li><li class="ng-scope">Try more general keywords.</li><li class="ng-scope">Try fewer keywords.</li></ul></md-card-content></md-card></div></md-content></div>'
+	});
+
     // component to activate search when search scope changed per the Search It Working Group suggesstion
     // see for more information: https://developers.exlibrisgroup.com/blog/automatically-activate-a-search-after-changing-search-scope/
     // Modified to change the place-holder text for the `Course Reserves` search scope -- 18/01/2024
