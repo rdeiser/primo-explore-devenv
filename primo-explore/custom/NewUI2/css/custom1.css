@@ -1,9 +1,19 @@
 /* Communications and Marketing Review -- 2024 */
-a {
+a, prm-linked-data .person-name-btn {
   color: #512888;
  }
  a:hover{
   color: #999999;
+ }
+
+  /* Availability statment color */
+  .fulltext, .not_restricted,  .md-button.button-as-link{
+    color: #512888;
+   }
+ /* brief result title color */
+ prm-brief-result .item-title span, .md-button.button-as-link.link-alt-color {
+  color: #512888;
+  font-size: 20px;
  }
 /* font sizes */
 prm-main-menu[menu-type="menu"] .md-button {
@@ -13,6 +23,7 @@ prm-main-menu[menu-type="menu"] .md-button {
 /* Updated font per request -- https://it.lib.k-state.edu/projects/issues/18180 */
 body {
   font-family: myriad-pro, sans-serif;
+  font-size: 1em;
 }
 
 /* START CM recommended changes Ticket #17330 */
@@ -621,8 +632,9 @@ prm-search-bar .search-switch-buttons .md-button.switch-to-simple {
 .prm-primary-bg, prm-atoz-search-bar, prm-browse-search-bar, prm-collection-gallery-header .collection-header-inner, prm-newspapers-search-bar, prm-search-bar, prm-spinner.overlay-cover.light-on-dark:after, prm-tags-search-bar  {
        background-color: #73529F;
 }
+/* Find it at the library `options` font size */
 .bar prm-authentication .md-button, .md-button.button-as-link {
-    font-size: 1.3em;
+    font-size: 1.0em;
 
 }
 
