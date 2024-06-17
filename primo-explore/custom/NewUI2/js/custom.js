@@ -195,7 +195,7 @@ document.head.appendChild(googleAnalyticsCode);
                   name: 'External Search',
                   displayedType: 'exact',
                   limitCount: 0,
-                  facetGroupCollapsed: false,
+                  facetGroupCollapsed: true,
                   values: undefined
                 });
               }
