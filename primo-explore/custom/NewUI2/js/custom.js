@@ -141,6 +141,13 @@ document.head.appendChild(googleAnalyticsCode);
         };
       }
     });
+
+    /* Updated Library Logo */
+    app.component('prmLogoAfter', {
+    bindings: {parentCtrl: '<'},
+    template: '<div class="libraryLogo"><div class="libraryPipe"><div class="libraryUrl"><a href="https://lib.k-state.edu/">Libraries</a></div></div></div>'
+    });
+    /* Updated Library Logo END*/
   
     //Add External Search from WSU -- revised JMcWilliams 20180619
     //Modified 10/2022 to function within AngularJS 1.8 migration 
