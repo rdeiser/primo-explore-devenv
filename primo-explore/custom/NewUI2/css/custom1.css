@@ -1,9 +1,52 @@
+/* Search Magnifying Glass, Citation Trail -- color: inherit !important;*/
+.md-button.button-confirm, .result-item-actions .md-icon-button {
+  color: #512888 !important;
+}
+.md-button.button-confirm:hover:not([disabled]), .result-item-actions .md-icon-button:hover:not([disabled]){
+  background-color: #999999;
+}
+
+/* Expanded Menu Links options */
+prm-main-menu[menu-type="full"] .md-button .md-headline {
+  color: #f0f0f0
+}
+
+prm-main-menu[menu-type="full"] a:hover span {
+  color: #999999 !important;
+}
+
+/* Now Listing Sources Cited In */
+prm-citation-trails-item .item-type {
+  color: #000000;
+}
+
+/* Located at Library location link */
+[class*="check_"] > span, [class*="available"] > span {
+  color: #512888;
+}
+
+/* Citation Trail within Full Record Details & Back to Locations & Choose Top 50 Results & Personalize & Full Record Options & Citations Cited Title */
+prm-citation-trails-indication .md-button.button-with-icon, md-tabs.tabs-as-app .back-button, .md-button.button-link, .md-button.button-as-link.link-alt-color, .md-button.button-as-link, prm-citation-trails-item.active-item .item-title {
+  color: #512888;
+}
+
+prm-citation-trails-indication .md-button.button-with-icon:hover:not([disabled]), md-tabs.tabs-as-app .back-button:hover:not([disabled]), .md-button.button-link:hover:not([disabled]), .md-button.button-as-link.link-alt-color:hover:not([disabled]), .md-button.button-as-link:hover:not([disabled]), prm-citation-trails-item.active-item .item-title:hover:not([disabled]) {
+  background-color: #999999;
+}
+
+/* Result Title */
+prm-brief-result .item-title span {
+  color: #512888;
+}
+/* Need to update hover for Personalize */
+
 /* Updated Library Logo */
 .libraryPipe {
   position: relative;
   border-left: 1.4px solid currentColor;
   color: #512888;
   vertical-align: middle;
+  left: -70px;
 }
 
 .libraryUrl {
@@ -219,9 +262,12 @@ prm-gallery-item .collection-element .item-title {
     cursor: not-allowed; }
 	
 	/* sign in area*/
-  .bar prm-authentication .md-button, .md-button.button-as-link {
+  .bar prm-authentication .md-button {
     font-size: 1.5em;
-    color: #c51a07;
+    color: #512888;
+}
+.bar prm-authentication .md-button:hover:not([disabled]) {
+  color: #999999;
 }
      .md-button.flex-button {
     display: -ms-flexbox;
@@ -281,7 +327,7 @@ prm-gallery-item .collection-element .item-title {
 .prm-primary-bg, prm-spinner.overlay-cover.light-on-dark:after, prm-search-bar, prm-journals-search-bar {
   color: black;
   background-color: #73529f; }
-  .prm-primary-bg.prm-hue1, prm-spinner.prm-hue1.overlay-cover.light-on-dark:after, prm-topbar .top-nav-bar, prm-search-bar.prm-hue1, prm-journals-search-bar.prm-hue1 {
+  .prm-primary-bg.prm-hue1, prm-spinner.prm-hue1.overlay-cover.light-on-dark:after, prm-search-bar.prm-hue1, prm-journals-search-bar.prm-hue1 {
     background-color: #512888; }
   .prm-primary-bg.prm-hue2, prm-spinner.prm-hue2.overlay-cover.light-on-dark:after, prm-search-bar.prm-hue2, prm-journals-search-bar.prm-hue2, md-backdrop.md-opaque {
     background-color: #40206c; }
@@ -299,8 +345,8 @@ prm-gallery-item .collection-element .item-title {
   .prm-primary-border.prm-hue2 {
     border-color: #73529f; }
 /* Topbar/banner background */
-.prm-secondary-color, prm-search-bookmark-filter .md-button, prm-topbar .top-nav-bar, .md-button.button-over-dark:not(.disable-hover):hover:not([disabled]):hover:not([disabled]), prm-topbar .md-button:not(.disable-hover):hover:not([disabled]):hover:not([disabled]):not(.close-btn-favorits-warning-message) {
-  background-color: #f0f0f0; }
+prm-topbar .top-nav-bar {
+  background-color: #ffffff; }
 
 /* Topbar/banner background END */
 
@@ -523,7 +569,7 @@ prm-gallery-item .collection-element .item-title {
 .duedate > span:first-of-type {
   color: gray; }
 
-.prm-citation-color, prm-citation-trails-item .item-type {
+.prm-citation-color {
   color: #E1523D; }
   .prm-citation-color.citation-hover, prm-citation-trails-item .citation-hover.item-type, prm-citation-trails-indication .md-button.md-icon-button:hover, prm-citation-trails-indication .md-button.button-with-icon:hover {
     color: #7a1300; }
