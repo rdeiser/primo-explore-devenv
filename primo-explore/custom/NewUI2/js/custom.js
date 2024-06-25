@@ -35,7 +35,7 @@
     /****************************************************************************************************/
 
     /* <!-- Google Tag Manager --> added to track events within Primo VE--red 07 October 2022 */
-var GTM_CODE = 'GTM-TPRGS9R';
+var GTM_CODE = 'GTM-PPW6CDM';
 (function (w, d, s, l, i) {
 w[l] = w[l] || [];w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });var f = d.getElementsByTagName(s)[0],
   j = d.createElement(s),
@@ -55,7 +55,7 @@ var googleAnalyticsCode = document.createElement('script');
 googleAnalyticsCode.innerHTML = `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-336164211',{ 'debug_mode':true });`;
+gtag('config', 'G-4ZK8S0YVT2',{ 'debug_mode':true });`;
 document.head.appendChild(googleAnalyticsCode);
 //gtag('config', 'G-336164211');
 //END - Google Analytics
