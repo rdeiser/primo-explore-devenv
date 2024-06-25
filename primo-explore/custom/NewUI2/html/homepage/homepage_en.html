@@ -16,7 +16,13 @@
         <md-card class="default-card">
             <md-card-title>
                 <md-card-title-text>
-                    <span class="md-headline">Sign in</span>
+                    <span class="md-headline">
+                        <prm-authentication [is-logged-in]="$ctrl.userName().length > 0" [idp-logout]="$ctrl.idpLogout" flex="none" class="flex-none">
+                            <button class="button-with-icon zero-margin md-button md-primoExplore-theme md-ink-ripple" type="button" ng-transclude="" ng-if="!$ctrl.isLoggedInIDP()" ng-click="$ctrl.handleLogin();" aria-label="Sign in">
+                                <span translate="eshelf.signin.title">Sign in</span>
+                                <div class="md-ripple-container" style=""></div></button>
+                                <prm-authentication-after parent-ctrl="$ctrl"></prm-authentication-after></prm-authentication>
+                    </span>
                 </md-card-title-text>
             </md-card-title>
             <md-card-content>
