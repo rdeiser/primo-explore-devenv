@@ -337,11 +337,12 @@ document.head.appendChild(googleAnalyticsCode);
     chatFrameWrap.setAttribute('style', 'display: none; width: 280px; background-color: #f5f5f5; padding: 0; box-shadow: -5px -5px 20px 5px rgba(0, 0, 0, 0.3); position: fixed; bottom: 0; right: 10px; border: 0 none; z-index: 200;');
     chatFrameWrap.appendChild(closeChatButton);
     chatFrameWrap.appendChild(needsJs);
-  
+    
     var chatButton = document.createElement('button');
-    chatButton.innerHTML = "<img src=\"custom/01KSU_INST-NewUI/img/output-onlinepngtools.png\" width=\"119px\" height=\"64.766px\">";
-    chatButton.setAttribute('style', 'position: fixed; top: 400px; right 10px; padding: 0; right: 10px; border: 0 none; z-index: 200; box-shadow: none;  text-align: center; display: inline-block; text-decoration: none; background:transparent;');
-  
+    chatButton.innerHTML = 'Chat';
+    chatButton.setAttribute('style', 'background: #512888; color: #f0f0f0; padding: 10px 10px 8px; font-size: 16px; border-radius: 3px 3px 0 0; position: fixed; bottom: 700px; right: -20px; border: 0 none; z-index: 200; box-shadow: none; font-weight: 400; text-align: center; display: inline-block; text-decoration: none; width: 75px; height: 36px; font-family: myriad-pro, sans-serif;');
+    chatButton.style.transform = 'rotate(90deg)';
+    
     var showChat = false;
     function toggleChat() {
       chatFrameWrap.style.display = showChat ? 'none' : 'block';
@@ -351,17 +352,17 @@ document.head.appendChild(googleAnalyticsCode);
     closeChatButton.addEventListener('touchend', toggleChat);
     chatButton.addEventListener('click', toggleChat);
     chatButton.addEventListener('touchend', toggleChat);
-  
+    
     var chatWidget = document.createElement('aside');
     chatWidget.setAttribute('tabindex', '-1');
     chatWidget.setAttribute('style', 'display: block;');
     chatWidget.appendChild(chatButton);
     chatWidget.appendChild(chatFrameWrap);
     document.body.appendChild(chatWidget);
-  
+    
     var s = document.createElement('script');
     s.id = 'localScript';
-    s.src = 'https://libraryh3lp.com/js/libraryh3lp.js?11156';
+    s.src = 'https://libraryh3lp.com/js/libraryh3lp.js?19250';
     document.body.appendChild(s);
     /*---------------LibraryH3lp code ends here---------------*/
 
