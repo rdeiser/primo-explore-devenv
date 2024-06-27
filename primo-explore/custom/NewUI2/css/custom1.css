@@ -1,3 +1,24 @@
+/* StackMap background color */
+.SMsearchbtn {
+  background-color: grey !important;
+}
+/* Lock filter icon background color */
+.md-button.md-primary:hover:not([disabled]) {
+  background-color: #f0f0f0;
+}
+/* Remove My Library Account and vertical bar from expanded links menue */
+[ng-if="!$ctrl.isDepositDisplay && !$ctrl.isDiscoveryServicesPage() && !$ctrl.isDiscoveryLocalNoLogin() && !$ctrl.isDiscoveryWithExternalNoLogin()"] {
+  display:none;
+}
+
+.vertical-divider {
+  display:none;
+}
+/* Hiding the Sign-In Link */
+.alert-bar {
+  display:none;
+  }
+
 /* Search Magnifying Glass, Citation Trail -- color: inherit !important;*/
 .md-button.button-confirm, .result-item-actions .md-icon-button {
   color: #512888 !important;
@@ -6,8 +27,8 @@
   background-color: #999999;
 }
 
-/* Expanded Menu Links options */
-prm-main-menu[menu-type="full"] .md-button .md-headline {
+/* Expanded Menu Links options & Login iFrame & Login Community Patron Need help signing in? */
+prm-main-menu[menu-type="full"] .md-button .md-headline, md-dialog.light-on-dark-dialog md-list md-list-item.list-login .md-button, md-dialog.light-on-dark-dialog md-list md-list-item.list-login .md-button:hover:not([disabled]), .light-on-dark-dialog .md-button.button-as-link {
   color: #f0f0f0
 }
 
@@ -15,22 +36,30 @@ prm-main-menu[menu-type="full"] a:hover span {
   color: #999999 !important;
 }
 
-/* Now Listing Sources Cited In */
-prm-citation-trails-item .item-type {
+.md-icon {
+  color: #000000 !important;
+}
+
+/* Now Listing Sources Cited In & Facet Text Color */
+prm-citation-trails-item .item-type, prm-facet-exact .section-title:hover span, prm-facet-range .section-title:hover span, prm-facet-range .section-title:focus span, prm-facet-exact .section-title:focus span, prm-facet-exact .section-title prm-icon, prm-facet-range .section-title prm-icon {
   color: #000000;
 }
 
-/* Located at Library location link */
-[class*="check_"] > span, [class*="available"] > span {
+/* Located at Library location link & Author Card Name & Login iframe community patron link out */
+[class*="check_"] > span, [class*="available"] > span, prm-person-entity-page .person-full-view-cont .person-header h2 span, md-dialog.light-on-dark-dialog a  {
   color: #512888;
 }
 
-/* Citation Trail within Full Record Details & Back to Locations & Choose Top 50 Results & Personalize & Full Record Options & Citations Cited Title */
-prm-citation-trails-indication .md-button.button-with-icon, md-tabs.tabs-as-app .back-button, .md-button.button-link, .md-button.button-as-link.link-alt-color, .md-button.button-as-link, prm-citation-trails-item.active-item .item-title {
+.light-on-dark-dialog a:hover {
+  box-shadow: none;
+}
+
+/* Citation Trail within Full Record Details & Back to Locations & Choose Top 50 Results & Personalize & Full Record Options & Citations Cited Title & Apply Filters & author card see more link */
+prm-citation-trails-indication .md-button.button-with-icon, md-tabs.tabs-as-app .back-button, .md-button.button-link, .md-button.button-as-link.link-alt-color, .md-button.button-as-link, prm-citation-trails-item.active-item .item-title, .multiselect-submit .multiselect-submit-inner .md-button.md-primary, prm-person-entity-page .person-full-view-cont .person-content a, prm-linked-data .person-name-btn {
   color: #512888;
 }
 
-prm-citation-trails-indication .md-button.button-with-icon:hover:not([disabled]), md-tabs.tabs-as-app .back-button:hover:not([disabled]), .md-button.button-link:hover:not([disabled]), .md-button.button-as-link.link-alt-color:hover:not([disabled]), .md-button.button-as-link:hover:not([disabled]), prm-citation-trails-item.active-item .item-title:hover:not([disabled]) {
+prm-citation-trails-indication .md-button.button-with-icon:hover:not([disabled]), md-tabs.tabs-as-app .back-button:hover:not([disabled]), .md-button.button-link:hover:not([disabled]), .md-button.button-as-link.link-alt-color:hover:not([disabled]), .md-button.button-as-link:hover:not([disabled]), prm-citation-trails-item.active-item .item-title:hover:not([disabled]), .multiselect-submit .multiselect-submit-inner .md-button.md-primary:hover:not([disabled]), prm-person-entity-page .person-full-view-cont .person-content a:hover:not([disabled]) {
   background-color: #999999;
 }
 
