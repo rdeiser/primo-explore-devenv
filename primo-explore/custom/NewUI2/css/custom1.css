@@ -81,12 +81,12 @@ prm-citation-trails-item .item-type, prm-facet-exact .section-title:hover span, 
   box-shadow: none;
 }
 
-/* Citation Trail within Full Record Details & Back to Locations & Choose Top 50 Results & Personalize & Full Record Options & Citations Cited Title & Apply Filters & author card see more link & Expand my results */
-prm-citation-trails-indication .md-button.button-with-icon, md-tabs.tabs-as-app .back-button, .md-button.button-link, .md-button.button-as-link.link-alt-color, .md-button.button-as-link, prm-citation-trails-item.active-item .item-title, .multiselect-submit .multiselect-submit-inner .md-button.md-primary, prm-person-entity-page .person-full-view-cont .person-content a, prm-linked-data .person-name-btn, prm-facet .switch-results md-switch.md-checked .md-label {
+/* Citation Trail within Full Record Details & Back to Locations & Choose Top 50 Results & Personalize & Full Record Options & Citations Cited Title & Apply Filters & author card see more link & Expand my results & mobile filter icon */
+prm-citation-trails-indication .md-button.button-with-icon, md-tabs.tabs-as-app .back-button, .md-button.button-link, .md-button.button-as-link.link-alt-color, .md-button.button-as-link, prm-citation-trails-item.active-item .item-title, .multiselect-submit .multiselect-submit-inner .md-button.md-primary, prm-person-entity-page .person-full-view-cont .person-content a, prm-linked-data .person-name-btn, prm-facet .switch-results md-switch.md-checked .md-label, .md-button.button-as-link-mobile.link-alt-color, prm-facet .mobile-toolbar-text {
   color: #512888;
 }
 
-prm-citation-trails-indication .md-button.button-with-icon:hover:not([disabled]), md-tabs.tabs-as-app .back-button:hover:not([disabled]), .md-button.button-link:hover:not([disabled]), .md-button.button-as-link.link-alt-color:hover:not([disabled]), .md-button.button-as-link:hover:not([disabled]), prm-citation-trails-item.active-item .item-title:hover:not([disabled]), .multiselect-submit .multiselect-submit-inner .md-button.md-primary:hover:not([disabled]), prm-person-entity-page .person-full-view-cont .person-content a:hover:not([disabled]),  prm-facet .switch-results md-switch:hover.active {
+prm-citation-trails-indication .md-button.button-with-icon:hover:not([disabled]), md-tabs.tabs-as-app .back-button:hover:not([disabled]), .md-button.button-link:hover:not([disabled]), .md-button.button-as-link.link-alt-color:hover:not([disabled]), .md-button.button-as-link:hover:not([disabled]), prm-citation-trails-item.active-item .item-title:hover:not([disabled]), .multiselect-submit .multiselect-submit-inner .md-button.md-primary:hover:not([disabled]), prm-person-entity-page .person-full-view-cont .person-content a:hover:not([disabled]),  prm-facet .switch-results md-switch:hover.active, .md-button.button-as-link-mobile.link-alt-color:hover:not([disabled]) {
   background-color: #999999;
 }
 
