@@ -340,7 +340,7 @@ document.head.appendChild(googleAnalyticsCode);
     
     var chatButton = document.createElement('button');
     chatButton.innerHTML = 'Chat';
-    chatButton.setAttribute('style', 'background: #512888; color: #f0f0f0; padding: 10px 10px 8px; font-size: 16px; border-radius: 3px 3px 0 0; position: fixed; bottom: 500px; right: -20px; border: 0 none; z-index: 200; box-shadow: none; font-weight: 400; text-align: center; display: inline-block; text-decoration: none; width: 75px; height: 36px; font-family: myriad-pro, sans-serif;');
+    chatButton.setAttribute('class', 'h3lp')
     chatButton.style.transform = 'rotate(90deg)';
     
     var showChat = false;

@@ -1,3 +1,30 @@
+/* LibH3lp Chat Button */
+.h3lp {
+  background: #512888;
+	color: #f0f0f0;
+	padding: 10px 10px 8px;
+	font-size: 16px;
+	border-radius: 3px 3px 0 0;
+	position: absolute;
+	bottom: 400px;
+	right: -20px;
+	border: 0 none;
+	z-index: 200;
+	box-shadow: none;
+	font-weight: 400;
+	text-align: center;
+	display: block;
+	text-decoration: none;
+	width: 75px;
+	height: 36px;
+	font-family: myriad-pro, sans-serif;
+}
+
+@media screen and (max-width: 810px) {
+  .h3lp{
+    display: none;
+  }
+}
 /* StackMap background color */
 .SMsearchbtn {
   background-color: grey !important;
@@ -54,20 +81,25 @@ prm-citation-trails-item .item-type, prm-facet-exact .section-title:hover span, 
   box-shadow: none;
 }
 
-/* Citation Trail within Full Record Details & Back to Locations & Choose Top 50 Results & Personalize & Full Record Options & Citations Cited Title & Apply Filters & author card see more link */
-prm-citation-trails-indication .md-button.button-with-icon, md-tabs.tabs-as-app .back-button, .md-button.button-link, .md-button.button-as-link.link-alt-color, .md-button.button-as-link, prm-citation-trails-item.active-item .item-title, .multiselect-submit .multiselect-submit-inner .md-button.md-primary, prm-person-entity-page .person-full-view-cont .person-content a, prm-linked-data .person-name-btn {
+/* Citation Trail within Full Record Details & Back to Locations & Choose Top 50 Results & Personalize & Full Record Options & Citations Cited Title & Apply Filters & author card see more link & Expand my results */
+prm-citation-trails-indication .md-button.button-with-icon, md-tabs.tabs-as-app .back-button, .md-button.button-link, .md-button.button-as-link.link-alt-color, .md-button.button-as-link, prm-citation-trails-item.active-item .item-title, .multiselect-submit .multiselect-submit-inner .md-button.md-primary, prm-person-entity-page .person-full-view-cont .person-content a, prm-linked-data .person-name-btn, prm-facet .switch-results md-switch.md-checked .md-label {
   color: #512888;
 }
 
-prm-citation-trails-indication .md-button.button-with-icon:hover:not([disabled]), md-tabs.tabs-as-app .back-button:hover:not([disabled]), .md-button.button-link:hover:not([disabled]), .md-button.button-as-link.link-alt-color:hover:not([disabled]), .md-button.button-as-link:hover:not([disabled]), prm-citation-trails-item.active-item .item-title:hover:not([disabled]), .multiselect-submit .multiselect-submit-inner .md-button.md-primary:hover:not([disabled]), prm-person-entity-page .person-full-view-cont .person-content a:hover:not([disabled]) {
+prm-citation-trails-indication .md-button.button-with-icon:hover:not([disabled]), md-tabs.tabs-as-app .back-button:hover:not([disabled]), .md-button.button-link:hover:not([disabled]), .md-button.button-as-link.link-alt-color:hover:not([disabled]), .md-button.button-as-link:hover:not([disabled]), prm-citation-trails-item.active-item .item-title:hover:not([disabled]), .multiselect-submit .multiselect-submit-inner .md-button.md-primary:hover:not([disabled]), prm-person-entity-page .person-full-view-cont .person-content a:hover:not([disabled]),  prm-facet .switch-results md-switch:hover.active {
   background-color: #999999;
 }
 
+/* Expand my results button */
+prm-facet .switch-results md-switch.md-checked .md-bar, prm-facet .switch-results md-switch.md-checked .md-thumb {
+  color: #512888;
+  background-color: #512888;
+}
+
 /* Result Title */
-prm-brief-result .item-title span {
+prm-brief-result .item-title span, .md-button.md-primary {
   color: #512888;
 }
-/* Need to update hover for Personalize */
 
 /* Updated Library Logo */
 .libraryPipe {
@@ -531,7 +563,7 @@ prm-topbar .top-nav-bar {
     md-toolbar:not(.md-menu-toolbar).citations-toolbar .toolbar-section {
       border-color: #d7d7d7; }
 
-/* makde sign for item in place bolder*/
+/* make sign for item in place bolder*/
   md-list-item.md-2-line .md-list-item-text h3, md-list-item.md-2-line>.md-no-style .md-list-item-text h3, md-list-item.md-3-line .md-list-item-text h3, md-list-item.md-3-line>.md-no-style .md-list-item-text h3, md-list-item.md-2-line .md-list-item-text h4, md-list-item.md-2-line>.md-no-style .md-list-item-text h4, md-list-item.md-3-line .md-list-item-text h4, md-list-item.md-3-line>.md-no-style .md-list-item-text h4 {
     font-size: 15px;
     letter-spacing: .01em;
@@ -556,7 +588,7 @@ prm-topbar .top-nav-bar {
     color: #000001; }
     
       .prm-links-bg:hover:not([disabled]), .prm-links-bg:focus:not([disabled]), .prm-links-bg.hovered:not([disabled]), .prm-links-bg.md-focused:not([disabled]), .prm-links-bg._md-focused:not([disabled]) {
-      color: #265f8d;
+      color: #999999;
       background-color: rgba(92, 146, 189, 0.1); }
     .prm-links-bg.prm-hue-1 {
       background-color: rgba(26, 153, 255, 0.1); }
