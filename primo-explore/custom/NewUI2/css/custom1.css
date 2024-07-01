@@ -1,3 +1,24 @@
+/* Personalized Search options */
+.prm-personalization, .sidebar .personalization-section .sidebar-list, .sidebar .personalization-section md-checkbox {
+  color: #000001;
+}
+
+.prm-personalization-bg, .sidebar .personalization-section .sidebar-list li::before, .sidebar .personalization-section md-checkbox.md-checked .md-icon, .sidebar .personalization-section ul li::before, prm-search-result-list prm-personalize-results-button .md-button md-switch._md-checked ._md-bar, prm-search-result-list prm-personalize-results-button .md-button md-switch._md-checked ._md-thumb, prm-search-result-list prm-personalize-results-button .md-button md-switch._md-checked .md-bar, prm-search-result-list prm-personalize-results-button .md-button md-switch._md-checked .md-thumb, prm-search-result-list prm-personalize-results-button .md-button md-switch.md-checked ._md-bar, prm-search-result-list prm-personalize-results-button .md-button md-switch.md-checked ._md-thumb {
+  background-color: #000001;
+}
+
+prm-search-result-list prm-personalize-results-button .md-button md-switch.md-checked .md-label {
+  color: #512888;
+}
+
+prm-search-result-list prm-personalize-results-button .md-button md-switch.md-checked .md-label:hover:not([disabled]), prm-search-result-list prm-personalize-results-button .md-button.toggled.button-as-link:hover:not([disabled]):hover:not([disabled])  {
+  background-color: #999999;
+}
+
+prm-search-result-list prm-personalize-results-button .md-button md-switch.md-checked .md-thumb, prm-search-result-list prm-personalize-results-button .md-button md-switch.md-checked .md-bar {
+  background-color: #512888;
+}
+
 /* LibH3lp Chat Button */
 .h3lp {
   background: #512888;
