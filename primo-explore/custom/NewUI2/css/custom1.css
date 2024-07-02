@@ -165,8 +165,8 @@ prm-collection-discovery prm-collection-navigation-breadcrumbs-item .md-button.b
   color: #fff;
 }
 
-/* collections breadcrumb hover */
-prm-collection-discovery:hover prm-collection-navigation-breadcrumbs-item:hover .md-button.button-as-link.link-alt-color:hover, prm-collection-discovery-view-switcher .md-button.is-active:hover:hover:not([disabled]), prm-collection-discovery-view-switcher .md-button.is-active:hover:not([disabled]), prm-collection-discovery-view-switcher .md-button.is-active:focus:focus:not([disabled]), prm-collection-discovery-view-switcher .md-button.is-active:focus:not([disabled]) {
+/* collections breadcrumb hover & Sign Out button */
+prm-collection-discovery:hover prm-collection-navigation-breadcrumbs-item:hover .md-button.button-as-link.link-alt-color:hover, prm-collection-discovery-view-switcher .md-button.is-active:hover:hover:not([disabled]), prm-collection-discovery-view-switcher .md-button.is-active:hover:not([disabled]), prm-collection-discovery-view-switcher .md-button.is-active:focus:focus:not([disabled]), prm-collection-discovery-view-switcher .md-button.is-active:focus:not([disabled]), .md-button.md-primary:focus:not([disabled]) {
   background-color:#73529f;
 }
 
@@ -245,10 +245,10 @@ prm-gallery-item .collection-element .item-title {
     color: #73529f;
     background-color: rgba(58, 58, 58, 0.1); }
   .light-on-dark-dialog .md-button {
-    color: white; }
+    color: white !important; }
     .light-on-dark-dialog .md-button:hover:not([disabled]), .light-on-dark-dialog .md-button:focus:not([disabled]), .light-on-dark-dialog .md-button.hovered:not([disabled]), .light-on-dark-dialog .md-button.md-focused:not([disabled]), .light-on-dark-dialog .md-button._md-focused:not([disabled]) {
-      color: white;
-      background-color: rgba(255, 255, 255, 0.08); }
+      color: white !important;
+      background-color: rgba(255, 255, 255, 0.08) !important; }
   
      .md-button.md-secondary {
     color: #512888; }
