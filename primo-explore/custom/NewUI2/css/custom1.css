@@ -88,13 +88,13 @@ prm-main-menu[menu-type="full"] a:hover span {
   color: #000000 !important;
 }
 
-/* Now Listing Sources Cited In & Facet Text Color */
-prm-citation-trails-item .item-type, prm-facet-exact .section-title:hover span, prm-facet-range .section-title:hover span, prm-facet-range .section-title:focus span, prm-facet-exact .section-title:focus span, prm-facet-exact .section-title prm-icon, prm-facet-range .section-title prm-icon {
+/* Now Listing Sources Cited In & Facet Text Color & Find by Citation & Browse Search Results */
+prm-citation-trails-item .item-type, prm-facet-exact .section-title:hover span, prm-facet-range .section-title:hover span, prm-facet-range .section-title:focus span, prm-facet-exact .section-title:focus span, prm-facet-exact .section-title prm-icon, prm-facet-range .section-title prm-icon, .request-form md-input-container label:not(.md-no-float):not(._md-container-ignore), .select_38,  md-list.prm-list.prm-linkable-list-items md-list-item .item-title, prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item .item-title {
   color: #000000;
 }
 
-/* Located at Library location link & Author Card Name & Login iframe community patron link out */
-[class*="check_"] > span, [class*="available"] > span, prm-person-entity-page .person-full-view-cont .person-header h2 span, md-dialog.light-on-dark-dialog a  {
+/* Located at Library location link & Author Card Name & Login iframe community patron link out & Linked Related Persons */
+[class*="check_"] > span, [class*="available"] > span, prm-person-entity-page .person-full-view-cont .person-header h2 span, md-dialog.light-on-dark-dialog a, .request-form md-input-container label {
   color: #512888;
 }
 
@@ -102,8 +102,8 @@ prm-citation-trails-item .item-type, prm-facet-exact .section-title:hover span, 
   box-shadow: none;
 }
 
-/* Citation Trail within Full Record Details & Back to Locations & Choose Top 50 Results & Personalize & Full Record Options & Citations Cited Title & Apply Filters & author card see more link & Expand my results & mobile filter icon */
-prm-citation-trails-indication .md-button.button-with-icon, md-tabs.tabs-as-app .back-button, .md-button.button-link, .md-button.button-as-link.link-alt-color, .md-button.button-as-link, prm-citation-trails-item.active-item .item-title, .multiselect-submit .multiselect-submit-inner .md-button.md-primary, prm-person-entity-page .person-full-view-cont .person-content a, prm-linked-data .person-name-btn, prm-facet .switch-results md-switch.md-checked .md-label, .md-button.button-as-link-mobile.link-alt-color, prm-facet .mobile-toolbar-text {
+/* Citation Trail within Full Record Details & Back to Locations & Choose Top 50 Results & Personalize & Full Record Options & Citations Cited Title & Apply Filters & author card see more link & Expand my results & mobile filter icon & Newspaper Search */
+prm-citation-trails-indication .md-button.button-with-icon, md-tabs.tabs-as-app .back-button, .md-button.button-link, .md-button.button-as-link.link-alt-color, .md-button.button-as-link, prm-citation-trails-item.active-item .item-title, .multiselect-submit .multiselect-submit-inner .md-button.md-primary, prm-person-entity-page .person-full-view-cont .person-content a, prm-linked-data .person-name-btn, prm-facet .switch-results md-switch.md-checked .md-label, .md-button.button-as-link-mobile.link-alt-color, prm-facet .mobile-toolbar-text, prm-newspapers-spotlight h3 a {
   color: #512888;
 }
 
