@@ -99,7 +99,7 @@ prm-citation-trails-item .item-type, prm-facet-exact .section-title:hover span, 
 }
 
 /* Located at Library location link & Author Card Name & Login iframe community patron link out & Linked Related Persons & Simple Search filters */
-[class*="check_"] > span, [class*="available"] > span, prm-person-entity-page .person-full-view-cont .person-header h2 span, md-dialog.light-on-dark-dialog a, .request-form md-input-container label, prm-pre-filters md-input-container.is-active {
+[class*="check_"] > span, [class*="available"] > span, prm-person-entity-page .person-full-view-cont .person-header h2 span, md-dialog.light-on-dark-dialog a, .request-form md-input-container label, prm-pre-filters md-input-container.is-active, prm-pre-filters md-input-container.is-active :focus {
   color: #512888;
 }
 
