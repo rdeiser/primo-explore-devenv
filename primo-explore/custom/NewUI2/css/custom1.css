@@ -98,8 +98,8 @@ prm-citation-trails-item .item-type, prm-facet-exact .section-title:hover span, 
   color: #000000;
 }
 
-/* Located at Library location link & Author Card Name & Login iframe community patron link out & Linked Related Persons */
-[class*="check_"] > span, [class*="available"] > span, prm-person-entity-page .person-full-view-cont .person-header h2 span, md-dialog.light-on-dark-dialog a, .request-form md-input-container label {
+/* Located at Library location link & Author Card Name & Login iframe community patron link out & Linked Related Persons & Simple Search filters */
+[class*="check_"] > span, [class*="available"] > span, prm-person-entity-page .person-full-view-cont .person-header h2 span, md-dialog.light-on-dark-dialog a, .request-form md-input-container label, prm-pre-filters md-input-container.is-active {
   color: #512888;
 }
 
