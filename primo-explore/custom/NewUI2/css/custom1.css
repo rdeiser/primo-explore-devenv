@@ -76,6 +76,9 @@ prm-search-result-list prm-personalize-results-button .md-button md-switch.md-ch
 .md-button.button-confirm, .result-item-actions .md-icon-button {
   color: #512888 !important;
 }
+.md-button.button-confirm {
+  background-color: none !important;
+}
 .md-button.button-confirm:hover:not([disabled]), .result-item-actions .md-icon-button:hover:not([disabled]){
   background-color: #999999;
 }
