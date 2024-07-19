@@ -68,9 +68,9 @@ prm-search-result-list prm-personalize-results-button .md-button md-switch.md-ch
   display:none;
 }
 /* Hiding the Sign-In Link */
-.alert-bar {
-  display:none;
-  }
+[ng-if="$ctrl.showMessage() && $ctrl.isGuestOrOffcampusForSignIn()"] {
+  display: none;
+}
 
 /* Search Magnifying Glass, Citation Trail -- color: inherit !important;*/
 .md-button.button-confirm, .result-item-actions .md-icon-button {

@@ -114,10 +114,10 @@ document.head.appendChild(googleAnalyticsCode);
       });
     //Add code for COVID Alert
     
-    /*app.component('prmSearchBarAfterAppStoreGenerated', {
+    app.component('prmSearchBarAfterAppStoreGenerated', {
         bindings: {parentCtrl: '<'},
-        template: '<md-card class="alert-bar"><md-card-content class="alert-bar-content"><p>Most K-State Libraries buildings are currently open with limited capacity. Please visit <a href="https://www.lib.k-state.edu/continuation">our continuation of services webpage</a> for updates related to COVID-19. <br> To request help, you can visit <a href="https://www.lib.k-state.edu/ask">with a librarian. </a></p></md-card-content></md-card>'
-    });*/
+        template: '<md-card class="alert-bar"><md-card-content class="alert-bar-content"><p>Our Interlibrary Loan provider is currently experiencing issues. We are working with the vendor to resolve access. <br> To request help, you can visit <a href="https://lib.k-state.edu/services-support/research-help/">with a librarian. </a></p></md-card-content></md-card>'
+    });
     
   
     //Auto activates the filter for items in full display
